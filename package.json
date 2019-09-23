@@ -1,6 +1,6 @@
 {
-  "name": "curingas-dti-gestao-a-vista",
-  "homepage": "http://curingas-dti-digital.github.io/curingas-dti-gestao-a-vista",
+  "name": "gestao-a-vista-curingas",
+  "homepage": "https://dtidigitalcrafters.github.io/gestao-a-vista-curingas/",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
