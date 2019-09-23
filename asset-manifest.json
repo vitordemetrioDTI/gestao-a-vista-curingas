@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/curingas-dti-gestao-a-vista/static/css/main.498d002a.chunk.css",
-    "main.js": "/curingas-dti-gestao-a-vista/static/js/main.1e768bc8.chunk.js",
-    "main.js.map": "/curingas-dti-gestao-a-vista/static/js/main.1e768bc8.chunk.js.map",
-    "runtime~main.js": "/curingas-dti-gestao-a-vista/static/js/runtime~main.8505cf9b.js",
-    "runtime~main.js.map": "/curingas-dti-gestao-a-vista/static/js/runtime~main.8505cf9b.js.map",
-    "static/js/2.bb57f4ca.chunk.js": "/curingas-dti-gestao-a-vista/static/js/2.bb57f4ca.chunk.js",
-    "static/js/2.bb57f4ca.chunk.js.map": "/curingas-dti-gestao-a-vista/static/js/2.bb57f4ca.chunk.js.map",
-    "index.html": "/curingas-dti-gestao-a-vista/index.html",
-    "precache-manifest.c42c025166d1b5647ed7240caeb0ec9e.js": "/curingas-dti-gestao-a-vista/precache-manifest.c42c025166d1b5647ed7240caeb0ec9e.js",
-    "service-worker.js": "/curingas-dti-gestao-a-vista/service-worker.js",
-    "static/css/main.498d002a.chunk.css.map": "/curingas-dti-gestao-a-vista/static/css/main.498d002a.chunk.css.map"
+    "main.css": "/gestao-a-vista-curingas/static/css/main.498d002a.chunk.css",
+    "main.js": "/gestao-a-vista-curingas/static/js/main.011f87b5.chunk.js",
+    "main.js.map": "/gestao-a-vista-curingas/static/js/main.011f87b5.chunk.js.map",
+    "runtime~main.js": "/gestao-a-vista-curingas/static/js/runtime~main.8c147a4c.js",
+    "runtime~main.js.map": "/gestao-a-vista-curingas/static/js/runtime~main.8c147a4c.js.map",
+    "static/js/2.bb57f4ca.chunk.js": "/gestao-a-vista-curingas/static/js/2.bb57f4ca.chunk.js",
+    "static/js/2.bb57f4ca.chunk.js.map": "/gestao-a-vista-curingas/static/js/2.bb57f4ca.chunk.js.map",
+    "index.html": "/gestao-a-vista-curingas/index.html",
+    "precache-manifest.c1c9b3306d76ab7f3579ad7d66cb0884.js": "/gestao-a-vista-curingas/precache-manifest.c1c9b3306d76ab7f3579ad7d66cb0884.js",
+    "service-worker.js": "/gestao-a-vista-curingas/service-worker.js",
+    "static/css/main.498d002a.chunk.css.map": "/gestao-a-vista-curingas/static/css/main.498d002a.chunk.css.map"
   }
 }
