@@ -6,7 +6,7 @@ import PauseButton from '@material-ui/icons/Pause';
 import PlayButton from '@material-ui/icons/PlayArrow';
 import Iframe from './components/Iframe';
 
-const pages = [0, 1, 2];
+const pages = [0, 1, 2, 3];
 
 const styles = theme => ({
   fab: {
@@ -53,6 +53,7 @@ class App extends React.Component {
             <Tab wrapped label="Ritos" />
             <Tab wrapped label="Diagnóstico" />
             <Tab wrapped label="1-1" />
+            <Tab wrapped label="OKR Prodap" />
           </Tabs>
           <Fab onClick={this.handleClick} className={classes.fab} color="secondary">
             {this.state.play ? (
@@ -77,6 +78,11 @@ class App extends React.Component {
           />
         )}
         {page === 2 && <OneOnOne />}
+        {page === 3 && (
+          <Iframe
+            page={`https://dtidigital.sharepoint.com/sites/tribocuringas/_layouts/15/Doc.aspx?sourcedoc={41dacf85-a4e0-48c9-a2ac-e4ac258e5280}&action=embedview&wdAllowInteractivity=False&Item='Geral'!B2%3AK23&wdHideGridlines=True&wdDownloadButton=True&wdInConfigurator=True`}
+          />
+        )}
       </MuiThemeProvider>
     );
   }
