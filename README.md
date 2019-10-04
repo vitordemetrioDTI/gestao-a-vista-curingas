@@ -2,6 +2,8 @@
 
 É uma aplicação em react para a gestão a vista da dti.
 
+###Crie um fork para usar na sua tribo!
+
 ## Publicação
 
 A publicação é feita através do próprio GitHub Pages.
