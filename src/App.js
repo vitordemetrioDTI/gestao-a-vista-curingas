@@ -19,8 +19,8 @@ const styles = theme => ({
 class App extends React.Component {
   state = {
     index: 0,
-    page: 2,
-    play: false
+    page: 0,
+    play: true
   };
 
   componentDidMount() {
