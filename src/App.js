@@ -19,8 +19,8 @@ const styles = theme => ({
 class App extends React.Component {
   state = {
     index: 0,
-    page: 0,
-    play: true
+    page: 2,
+    play: false
   };
 
   componentDidMount() {
@@ -80,7 +80,7 @@ class App extends React.Component {
         {page === 2 && <OneOnOne />}
         {page === 3 && (
           <Iframe
-            page={`https://dtidigital.sharepoint.com/sites/tribocuringas/_layouts/15/Doc.aspx?sourcedoc={41dacf85-a4e0-48c9-a2ac-e4ac258e5280}&action=embedview&wdAllowInteractivity=False&Item='Geral'!B2%3AK23&wdHideGridlines=True&wdDownloadButton=True&wdInConfigurator=True`}
+            page={`https://docs.google.com/spreadsheets/d/e/2PACX-1vSpC_x6FOQi7QOG4-gFFZzgIp_BCHZEKLHy8PoJpA9twqOAsRVMUerK9BEhglaI92K58qjW4DOFFkMC/pubhtml?gid=4758285&single=true`}
           />
         )}
       </MuiThemeProvider>
