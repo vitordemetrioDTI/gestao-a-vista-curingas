@@ -1,13 +1,16 @@
-import axios from "axios";
-import * as _ from "lodash";
-import moment from "moment";
+import axios from 'axios';
+import * as _ from 'lodash';
+import moment from 'moment';
 
 class CuringasRepo {
   listarCuringas() {
     return axios
       .get(`https://one-on-ones-dti.herokuapp.com/api/data_tribe/Curingas`)
       .then(response => {
-        return response.data.crafters;
+        return _.filter(
+          response.data.crafters,
+          crafter => crafter.email !== 'leonardo.goncalves@dtidigital.com.br'
+        );
       })
       .catch(error => {
         console.log(error);
@@ -17,7 +20,7 @@ class CuringasRepo {
   parseCuringa(array) {
     return {
       Crafter: array[0],
-      Data: moment(array[1], "DD/MM/YYYY"),
+      Data: moment(array[1], 'DD/MM/YYYY'),
       Lider: array[2]
     };
   }
