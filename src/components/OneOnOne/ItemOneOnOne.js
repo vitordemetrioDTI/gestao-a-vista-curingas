@@ -34,7 +34,10 @@ class ItemOneOnOne extends React.Component {
     return (
       <Grid item xs={1}>
         <Card className={this.corStatus(crafter.meeting)}>
-          <CardMedia style={{ height: '22vh' }} image={`./images/fotos/${crafter.email.split('@')[0]}.JPG`} />
+          <CardMedia
+            style={{ height: '22vh' }}
+            image={`./images/fotos/${crafter.email.split('@')[0]}.JPG`}
+          />
           {/* <CardHeader
             style={{ paddingBottom: 0 }}
             avatar={
@@ -68,7 +71,7 @@ class ItemOneOnOne extends React.Component {
                 <Typography
                   align="left"
                   style={{
-                    fontSize: 20,
+                    fontSize: 16,
                     fontWeight: 900,
                     color: '#ffffff',
                     minHeight: 140,
@@ -85,7 +88,10 @@ class ItemOneOnOne extends React.Component {
                 </Typography>
               </Grid>
               <Grid item xs={12}>
-                <Typography style={{ fontSize: 16, fontWeight: 400, color: '#ffffff' }} noWrap={true}>
+                <Typography
+                  style={{ fontSize: 16, fontWeight: 200, color: '#ffffff' }}
+                  noWrap={true}
+                >
                   {crafter.meeting ? crafter.meeting.leader : '-'}
                 </Typography>
               </Grid>

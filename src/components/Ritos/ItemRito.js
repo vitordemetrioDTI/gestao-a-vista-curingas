@@ -8,9 +8,7 @@ export const ItemRito = props => {
   return [
     <Grid key="a" item container xs={2} style={{ minHeight: 160 }}>
       <Grid item container justify="center" direction="column">
-        <Typography style={{ fontSize: 28, fontWeight: 900 }}>
-          {squad.Squad.replace('Curingas - ', '')}
-        </Typography>
+        <Typography style={{ fontSize: 28, fontWeight: 900 }}>{squad.Squad}</Typography>
       </Grid>
     </Grid>,
     <Grid key="b" item container xs={10} justify="center">
@@ -26,13 +24,13 @@ export const ItemRito = props => {
         direction="column"
         align="center"
       >
-        <Typography variant="h2" style={{ color: '#ffffff', fontWeight: 900 }}>
+        <Typography variant="h6" style={{ color: '#ffffff', fontWeight: 900 }}>
           {squad.Estoque}
         </Typography>
       </Grid>
       {dateCell(squad.CheckArquitetural)}
       {dateCell(squad.CheckExecucao)}
-      {dateCell(squad.RetroSprint)}
+      {dateCell(squad.RetroSquad)}
     </Grid>
   ];
 };
@@ -48,15 +46,15 @@ const dateCell = data => {
       direction="column"
       align="center"
     >
-      <Typography variant="h2" style={{ color: '#ffffff', fontWeight: 900 }}>
-        {data.isValid() ? data.format('DD/MM/YY') : 'NOVO'}
+      <Typography variant="h3" style={{ color: '#ffffff', fontWeight: 900 }}>
+        {data.isValid() ? data.format('DD/MM') : 'NOVO'}
       </Typography>
       {data.isValid() && (
-        <Typography variant="h6" style={{ color: '#ffffff', fontWeight: 400 }}>
+        <Typography variant="h5" style={{ color: '#ffffff', fontWeight: 400 }}>
           Próximo:{' '}
           {moment(data)
             .add(14, 'days')
-            .format('DD/MM/YY')}
+            .format('DD/MM')}
         </Typography>
       )}
     </Grid>
@@ -84,15 +82,11 @@ const corFarolData = dias => {
   }
 };
 
-const corFarolEstoque = sprints => {
-  if (sprints > 1) {
-    return { backgroundColor: '#e95d6a' };
-  } else if (sprints === 1) {
-    return { backgroundColor: '#f6b26b' };
-  } else if (sprints < 1) {
+const corFarolEstoque = estoque => {
+  if (estoque === 'CONCRETO') {
     return { backgroundColor: '#57bb8a' };
   } else {
-    return { backgroundColor: '#464646' };
+    return { backgroundColor: '#e95d6a' };
   }
 };
 

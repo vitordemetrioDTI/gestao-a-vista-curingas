@@ -13,6 +13,7 @@ function Iframe(props) {
   return (
     <div className={classes.card}>
       <iframe
+        title={props.page}
         src={props.page}
         width="100%"
         height="100%"

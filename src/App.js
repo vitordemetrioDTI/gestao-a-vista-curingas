@@ -1,18 +1,23 @@
 import React from 'react';
-import { MuiThemeProvider, AppBar, Tabs, Tab, Fab, withStyles } from '@material-ui/core';
+import { MuiThemeProvider, AppBar, Tabs, Tab, Fab, withStyles, Paper } from '@material-ui/core';
 import Theme from './Theme';
-import OneOnOne from './components/OneOnOne/OneOnOne';
 import PauseButton from '@material-ui/icons/Pause';
 import PlayButton from '@material-ui/icons/PlayArrow';
-import Iframe from './components/Iframe';
+import Squad from './components/Squad/Squad';
+import SquadRepo from './repos/SquadRepo';
 
 const pages = [0, 1, 2, 3];
 
 const styles = theme => ({
   fab: {
     position: 'absolute',
-    bottom: theme.spacing.unit * 2,
-    right: theme.spacing.unit * 2
+    bottom: theme.spacing(2),
+    right: theme.spacing(2)
+  },
+  pageView: {
+    height: `calc(100vh - 48px)`,
+    backgroundColor: '#29283d',
+    borderRadius: 0
   }
 });
 
@@ -20,10 +25,15 @@ class App extends React.Component {
   state = {
     index: 0,
     page: 0,
-    play: true
+    play: false
   };
 
   componentDidMount() {
+    SquadRepo.listarSquads().then(squads => {
+      this.setState({
+        squads: squads
+      });
+    });
     this.timer = setInterval(() => {
       if (this.state.play) {
         const newIndex = (this.state.index + 1) % pages.length;
@@ -44,45 +54,34 @@ class App extends React.Component {
   };
 
   render() {
-    const { page } = this.state;
+    const { page, squads } = this.state;
     const { classes } = this.props;
     return (
       <MuiThemeProvider theme={Theme}>
         <AppBar position="static">
           <Tabs value={page} onChange={this.handleChange} style={{ flexGrow: 1 }}>
-            <Tab wrapped label="Ritos" />
-            <Tab wrapped label="Diagnóstico" />
-            <Tab wrapped label="1-1" />
-            <Tab wrapped label="OKR Prodap" />
+            {squads &&
+              squads.map(squad => {
+                return <Tab wrapped label={squad.Squad} />;
+              })}
           </Tabs>
-          <Fab onClick={this.handleClick} className={classes.fab} color="secondary">
-            {this.state.play ? (
-              <PauseButton style={{ color: '#ffffff' }} />
-            ) : (
-              <PlayButton style={{ color: '#ffffff' }} />
-            )}
-          </Fab>
         </AppBar>
-        {page === 0 && (
-          <Iframe
-            page={
-              'https://docs.google.com/spreadsheets/d/e/2PACX-1vSpC_x6FOQi7QOG4-gFFZzgIp_BCHZEKLHy8PoJpA9twqOAsRVMUerK9BEhglaI92K58qjW4DOFFkMC/pubhtml?gid=2092766634&single=true'
-            }
-          />
+
+        {this.state.squads && (
+          <Paper className={classes.pageView}>
+            <Squad squad={this.state.squads[page]}></Squad>
+          </Paper>
         )}
-        {page === 1 && (
-          <Iframe
-            page={
-              'https://docs.google.com/spreadsheets/d/e/2PACX-1vSpC_x6FOQi7QOG4-gFFZzgIp_BCHZEKLHy8PoJpA9twqOAsRVMUerK9BEhglaI92K58qjW4DOFFkMC/pubhtml?gid=890090851&single=true'
-            }
-          />
-        )}
-        {page === 2 && <OneOnOne />}
-        {page === 3 && (
-          <Iframe
-            page={`https://docs.google.com/spreadsheets/d/e/2PACX-1vSpC_x6FOQi7QOG4-gFFZzgIp_BCHZEKLHy8PoJpA9twqOAsRVMUerK9BEhglaI92K58qjW4DOFFkMC/pubhtml?gid=4758285&single=true`}
-          />
-        )}
+
+        {/* {page === 2 && <OneOnOne />} */}
+
+        <Fab onClick={this.handleClick} className={classes.fab} color="secondary">
+          {this.state.play ? (
+            <PauseButton style={{ color: '#ffffff' }} />
+          ) : (
+            <PlayButton style={{ color: '#ffffff' }} />
+          )}
+        </Fab>
       </MuiThemeProvider>
     );
   }

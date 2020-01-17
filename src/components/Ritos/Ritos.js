@@ -23,7 +23,7 @@ class Ritos extends React.Component {
   };
 
   componentWillMount() {
-    SquadRepo.listarSquads('Curingas').then(squads => {
+    SquadRepo.listarSquads().then(squads => {
       this.setState({
         squads: squads
       });
@@ -37,7 +37,7 @@ class Ritos extends React.Component {
         <Card className={classes.card}>
           <Grid container spacing={16}>
             <Grid item container xs={2} alignItems="flex-end">
-              <Grid item xs padding="none" align="right">
+              <Grid item xs padding="none" align="left">
                 <Typography className={classes.header}>Squad</Typography>
               </Grid>
             </Grid>
