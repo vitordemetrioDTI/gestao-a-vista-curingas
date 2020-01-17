@@ -1,12 +1,12 @@
 import React from 'react';
 import ReactApexCharts from 'react-apexcharts';
 
-export const GembaCheck = props => {
+export const CheckExecucao = props => {
   const scores = Object.entries(props.squad).filter(entry => {
-    return entry[0].includes('ScoreGemba');
+    return entry[0].includes('ScoreCE');
   });
   const categories = scores.map(entry => {
-    return entry[0].replace('ScoreGemba', '');
+    return entry[0].replace('ScoreCE', '');
   });
   const data = scores.map(entry => {
     return entry[1];
@@ -44,4 +44,4 @@ export const GembaCheck = props => {
   );
 };
 
-export default GembaCheck;
+export default CheckExecucao;

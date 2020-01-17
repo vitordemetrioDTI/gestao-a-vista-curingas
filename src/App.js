@@ -25,7 +25,7 @@ class App extends React.Component {
   state = {
     index: 0,
     page: 0,
-    play: false
+    play: play
   };
 
   componentDidMount() {
