@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/gestao-a-vista-curingas/static/css/main.498d002a.chunk.css",
-    "main.js": "/gestao-a-vista-curingas/static/js/main.89c53492.chunk.js",
-    "main.js.map": "/gestao-a-vista-curingas/static/js/main.89c53492.chunk.js.map",
+    "main.js": "/gestao-a-vista-curingas/static/js/main.0b15ef5c.chunk.js",
+    "main.js.map": "/gestao-a-vista-curingas/static/js/main.0b15ef5c.chunk.js.map",
     "runtime~main.js": "/gestao-a-vista-curingas/static/js/runtime~main.8c147a4c.js",
     "runtime~main.js.map": "/gestao-a-vista-curingas/static/js/runtime~main.8c147a4c.js.map",
     "static/js/2.0aa30d6f.chunk.js": "/gestao-a-vista-curingas/static/js/2.0aa30d6f.chunk.js",
     "static/js/2.0aa30d6f.chunk.js.map": "/gestao-a-vista-curingas/static/js/2.0aa30d6f.chunk.js.map",
     "index.html": "/gestao-a-vista-curingas/index.html",
-    "precache-manifest.5d3fcfa6dd2550a09a9f748644192013.js": "/gestao-a-vista-curingas/precache-manifest.5d3fcfa6dd2550a09a9f748644192013.js",
+    "precache-manifest.bc2d59b6983196ccc5ca7c4721360395.js": "/gestao-a-vista-curingas/precache-manifest.bc2d59b6983196ccc5ca7c4721360395.js",
     "service-worker.js": "/gestao-a-vista-curingas/service-worker.js",
     "static/css/main.498d002a.chunk.css.map": "/gestao-a-vista-curingas/static/css/main.498d002a.chunk.css.map"
   }
