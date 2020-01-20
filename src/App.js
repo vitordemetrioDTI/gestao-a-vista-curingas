@@ -5,6 +5,7 @@ import PauseButton from '@material-ui/icons/Pause';
 import PlayButton from '@material-ui/icons/PlayArrow';
 import Squad from './components/Squad/Squad';
 import SquadRepo from './repos/SquadRepo';
+import CuringasRepo from './repos/CuringasRepo';
 
 const pages = [0, 1, 2, 3];
 
@@ -25,10 +26,15 @@ class App extends React.Component {
   state = {
     index: 0,
     page: 0,
-    play: play
+    play: true
   };
 
   componentDidMount() {
+    CuringasRepo.listarCuringas().then(crafters => {
+      this.setState({
+        crafters: crafters
+      });
+    });
     SquadRepo.listarSquads().then(squads => {
       this.setState({
         squads: squads
@@ -54,22 +60,22 @@ class App extends React.Component {
   };
 
   render() {
-    const { page, squads } = this.state;
+    const { page, squads, crafters } = this.state;
     const { classes } = this.props;
     return (
       <MuiThemeProvider theme={Theme}>
         <AppBar position="static">
           <Tabs value={page} onChange={this.handleChange} style={{ flexGrow: 1 }}>
-            {squads &&
+            {squads && crafters &&
               squads.map(squad => {
                 return <Tab wrapped label={squad.Squad} />;
               })}
           </Tabs>
         </AppBar>
 
-        {this.state.squads && (
+        {squads && crafters && (
           <Paper className={classes.pageView}>
-            <Squad squad={this.state.squads[page]}></Squad>
+            <Squad squad={squads[page]} crafters={crafters}></Squad>
           </Paper>
         )}
 

@@ -15,7 +15,7 @@ export const CheckExecucao = props => {
     <ReactApexCharts
       options={{
         chart: {
-          height: 20,
+          height: '20%',
           type: 'radar',
           background: '#29283d'
         },
@@ -29,7 +29,10 @@ export const CheckExecucao = props => {
           palette: 'palette8'
         },
         xaxis: {
-          categories: categories
+          categories: categories,
+          labels: {
+            show: true
+          }
         }
       }}
       series={[

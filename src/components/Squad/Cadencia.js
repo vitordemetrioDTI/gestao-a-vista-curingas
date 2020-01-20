@@ -6,17 +6,17 @@ export const Cadencia = props => {
   return (
     <Grid container align="center">
       <Grid item xs={4}>
-        <Typography style={{ fontSize: 16, fontWeight: 300, color: '#ffffff' }}>
+        <Typography style={{ fontSize: '1.6rem', fontWeight: 300, color: '#ffffff' }}>
           Check Arquitetural
         </Typography>
       </Grid>
       <Grid item xs={4}>
-        <Typography style={{ fontSize: 16, fontWeight: 300, color: '#ffffff' }}>
+        <Typography style={{ fontSize: '1.6rem', fontWeight: 300, color: '#ffffff' }}>
           Check de Execução
         </Typography>
       </Grid>
       <Grid item xs={4}>
-        <Typography style={{ fontSize: 16, fontWeight: 300, color: '#ffffff' }}>
+        <Typography style={{ fontSize: '1.6rem', fontWeight: 300, color: '#ffffff' }}>
           Retro do Squad
         </Typography>
       </Grid>
@@ -47,7 +47,7 @@ const obterDataComFarol = data => {
     <Typography
       style={{
         width: '64%',
-        fontSize: 24,
+        fontSize: '3rem',
         fontWeight: 900,
         backgroundColor: backgroundColor,
         color: '#ffffff'
