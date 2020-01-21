@@ -17,7 +17,7 @@ export const GembaCheck = props => {
         chart: {
           height: 20,
           type: 'radar',
-          background: '#29283d'
+          background: 'rgba(41, 40, 61, 0)'
         },
         colors: ['#57bb8a'],
         fill: {

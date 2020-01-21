@@ -66,9 +66,10 @@ class App extends React.Component {
       <MuiThemeProvider theme={Theme}>
         <AppBar position="static">
           <Tabs value={page} onChange={this.handleChange} style={{ flexGrow: 1 }}>
-            {squads && crafters &&
+            {squads &&
+              crafters &&
               squads.map(squad => {
-                return <Tab wrapped label={squad.Squad} />;
+                return <Tab wrapped key={squad.Squad} label={squad.Squad} />;
               })}
           </Tabs>
         </AppBar>

@@ -39,7 +39,7 @@ export const Membros = props => {
           );
         }
         return (
-          <Grid item xs={4}>
+          <Grid item xs={4} key={membro.login}>
             {avatar}
             <Typography style={{ fontSize: '1.6rem', fontWeight: 600, color: '#ffffff' }}>
               {membro.nome}
