@@ -86,8 +86,8 @@ class App extends React.Component {
           {this.state.play ? (
             <PauseButton style={{ color: '#ffffff' }} />
           ) : (
-            <PlayButton style={{ color: '#ffffff' }} />
-          )}
+              <PlayButton style={{ color: '#ffffff' }} />
+            )}
         </Fab>
       </MuiThemeProvider>
     );
