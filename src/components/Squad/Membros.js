@@ -7,8 +7,13 @@ export const Membros = props => {
   return (
     <Grid container spacing={2} align="center">
       {props.membros.map(membro => {
-        const crafter = props.crafters.find(crafter => crafter.email.includes(membro.login));
-        const corStatusOneOnOne = corStatus(crafter.meeting);
+        let corStatusOneOnOne = '#1c68b1';
+
+        if (props.crafters) {
+          const crafter = props.crafters.find(crafter => crafter.email.includes(membro.login));
+          corStatusOneOnOne = corStatus(crafter.meeting);
+        }
+
         let avatar = (
           <Avatar
             style={{

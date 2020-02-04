@@ -1,5 +1,14 @@
 import React from 'react';
-import { MuiThemeProvider, AppBar, Tabs, Tab, Fab, withStyles, Paper } from '@material-ui/core';
+import {
+  MuiThemeProvider,
+  AppBar,
+  Tabs,
+  Tab,
+  Fab,
+  withStyles,
+  Paper,
+  Typography
+} from '@material-ui/core';
 import Theme from './Theme';
 import PauseButton from '@material-ui/icons/Pause';
 import PlayButton from '@material-ui/icons/PlayArrow';
@@ -67,27 +76,30 @@ class App extends React.Component {
         <AppBar position="static">
           <Tabs value={page} onChange={this.handleChange} style={{ flexGrow: 1 }}>
             {squads &&
-              crafters &&
               squads.map(squad => {
                 return <Tab wrapped key={squad.Squad} label={squad.Squad} />;
               })}
           </Tabs>
+          <Typography
+            variant="overline"
+            style={{ position: 'absolute', right: '16px', top: '24px' }}
+          >
+            2.0.10
+          </Typography>
         </AppBar>
 
-        {squads && crafters && (
+        {squads && (
           <Paper className={classes.pageView}>
             <Squad squad={squads[page]} crafters={crafters}></Squad>
           </Paper>
         )}
 
-        {/* {page === 2 && <OneOnOne />} */}
-
         <Fab onClick={this.handleClick} className={classes.fab} color="secondary">
           {this.state.play ? (
             <PauseButton style={{ color: '#ffffff' }} />
           ) : (
-              <PlayButton style={{ color: '#ffffff' }} />
-            )}
+            <PlayButton style={{ color: '#ffffff' }} />
+          )}
         </Fab>
       </MuiThemeProvider>
     );

@@ -3,7 +3,7 @@ import * as _ from 'lodash';
 import moment from 'moment';
 
 class CuringasRepo {
-  listarCuringas() {
+  async listarCuringas() {
     return axios
       .get(`https://one-on-ones-dti.herokuapp.com/api/data_tribe/Curingas`)
       .then(response => {
