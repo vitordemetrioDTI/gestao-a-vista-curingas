@@ -29,7 +29,7 @@ export const Membros = props => {
           avatar = (
             <Badge
               overlap="circle"
-              anchorOrigin={{
+              anchororigin={{
                 vertical: 'top',
                 horizontal: 'right'
               }}

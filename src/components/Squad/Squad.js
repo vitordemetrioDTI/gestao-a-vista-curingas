@@ -1,5 +1,5 @@
 import React from 'react';
-import { Typography, Grid, Container } from '@material-ui/core';
+import { Typography, Grid } from '@material-ui/core';
 import Cadencia from './Cadencia';
 import GembaCheck from './GembaCheck';
 import Membros from './Membros';
@@ -8,20 +8,21 @@ import PlanoDeAcao from './PlanoDeAcao';
 
 export const Squad = props => {
   return (
-    <Container
-      maxWidth="xl"
-      disableGutters={true}
+    <div
       style={{
         height: '100%',
+        width: '100%',
         backgroundImage: `url(${props.squad.Cover})`,
-        backgroundSize: 'cover'
+        backgroundSize: 'cover',
+        overflow: 'hidden'
       }}
     >
-      <Container
-        maxWidth="xl"
+      <div
         style={{
+          width: '100%',
           height: '100%',
-          backgroundColor: '#29283ddd'
+          backgroundColor: '#29283ddd',
+          overflow: 'hidden'
         }}
       >
         <Typography style={{ padding: 16, fontSize: '2.2rem', fontWeight: 900, color: '#ffffff' }}>
@@ -32,19 +33,19 @@ export const Squad = props => {
             <Grid item xs={12}>
               <Cadencia squad={props.squad} />
             </Grid>
-            <Grid item xs={4} align="center">
+            <Grid item xs={6} align="center">
               <Typography style={{ fontSize: '2rem', fontWeight: 900, color: '#ffffff' }}>
                 Gemba Check
               </Typography>
               <GembaCheck squad={props.squad} />
             </Grid>
-            <Grid item xs={4} align="center">
+            <Grid item xs={6} align="center">
               <Typography style={{ fontSize: '2rem', fontWeight: 900, color: '#ffffff' }}>
                 Check de Execução
               </Typography>
               <CheckExecucao squad={props.squad} />
             </Grid>
-            <Grid item xs={4} align="center">
+            <Grid item xs={12} align="center">
               <Typography style={{ fontSize: '2rem', fontWeight: 900, color: '#ffffff' }}>
                 Plano de Ação
               </Typography>
@@ -55,8 +56,8 @@ export const Squad = props => {
             <Membros membros={props.squad.Membros} crafters={props.crafters} />
           </Grid>
         </Grid>
-      </Container>
-    </Container>
+      </div>
+    </div>
   );
 };
 

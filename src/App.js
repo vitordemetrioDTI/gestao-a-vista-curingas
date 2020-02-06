@@ -9,14 +9,15 @@ import {
   Paper,
   Typography
 } from '@material-ui/core';
+import { map } from 'lodash';
 import Theme from './Theme';
 import PauseButton from '@material-ui/icons/Pause';
 import PlayButton from '@material-ui/icons/PlayArrow';
 import Squad from './components/Squad/Squad';
 import SquadRepo from './repos/SquadRepo';
 import CuringasRepo from './repos/CuringasRepo';
-
-const pages = [0, 1, 2, 3];
+import OkrRepo from './repos/OkrRepo';
+import Okr from './components/Okr/Okr';
 
 const styles = theme => ({
   fab: {
@@ -34,7 +35,6 @@ const styles = theme => ({
 class App extends React.Component {
   state = {
     index: 0,
-    page: 0,
     play: true
   };
 
@@ -49,19 +49,21 @@ class App extends React.Component {
         squads: squads
       });
     });
+    OkrRepo.listarOkrs().then(okrs => {
+      this.setState({ okrs: okrs });
+    });
     this.timer = setInterval(() => {
       if (this.state.play) {
-        const newIndex = (this.state.index + 1) % pages.length;
+        const newIndex = (this.state.index + 1) % (this.state.squads.length + 1);
         this.setState({
-          index: newIndex,
-          page: pages[newIndex]
+          index: newIndex
         });
       }
     }, 30 * 1000);
   }
 
   handleChange = (e, value) => {
-    this.setState({ page: value });
+    this.setState({ index: value });
   };
 
   handleClick = () => {
@@ -69,28 +71,33 @@ class App extends React.Component {
   };
 
   render() {
-    const { page, squads, crafters } = this.state;
+    const { index, squads, crafters, okrs } = this.state;
     const { classes } = this.props;
     return (
       <MuiThemeProvider theme={Theme}>
         <AppBar position="static">
-          <Tabs value={page} onChange={this.handleChange} style={{ flexGrow: 1 }}>
-            {squads &&
-              squads.map(squad => {
-                return <Tab wrapped key={squad.Squad} label={squad.Squad} />;
-              })}
+          <Tabs value={index} onChange={this.handleChange} style={{ flexGrow: 1 }}>
+            {map(squads, (squad, i) => {
+              return <Tab wrapped key={squad.Squad} label={squad.Squad} value={i} />;
+            })}
+            {okrs && squads && <Tab wrapped key="okr" label="Okrs" value={squads.length} />}
           </Tabs>
           <Typography
             variant="overline"
             style={{ position: 'absolute', right: '16px', top: '24px' }}
           >
-            2.0.10
+            3.1.0
           </Typography>
         </AppBar>
 
-        {squads && (
-          <Paper className={classes.pageView}>
-            <Squad squad={squads[page]} crafters={crafters}></Squad>
+        {map(squads, (squad, i) => (
+          <Paper className={classes.pageView} hidden={index !== i} key={squad.Squad}>
+            <Squad squad={squad} crafters={crafters} />
+          </Paper>
+        ))}
+        {squads && okrs && (
+          <Paper className={classes.pageView} hidden={index < squads.length} key={'okr'}>
+            <Okr okrs={okrs} />
           </Paper>
         )}
 
