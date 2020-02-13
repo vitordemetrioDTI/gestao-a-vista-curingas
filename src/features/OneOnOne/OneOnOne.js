@@ -1,7 +1,7 @@
 import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import { Grid } from '@material-ui/core';
-import CuringasRepo from '../../repos/CuringasRepo';
+import CuringasRepo from './CuringasRepo';
 import ItemOneOnOne from './ItemOneOnOne';
 import * as _ from 'lodash';
 

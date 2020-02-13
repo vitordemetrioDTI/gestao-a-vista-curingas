@@ -3,7 +3,7 @@ import { withStyles } from '@material-ui/core/styles';
 import { Card, Grid, Typography } from '@material-ui/core';
 import * as _ from 'lodash';
 import { ItemRito } from './ItemRito';
-import SquadRepo from '../../repos/SquadRepo';
+import SquadRepo from '../SquadRepo';
 
 const styles = theme => ({
   card: {

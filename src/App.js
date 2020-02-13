@@ -13,11 +13,11 @@ import { map } from 'lodash';
 import Theme from './Theme';
 import PauseButton from '@material-ui/icons/Pause';
 import PlayButton from '@material-ui/icons/PlayArrow';
-import Squad from './components/Squad/Squad';
-import SquadRepo from './repos/SquadRepo';
-import CuringasRepo from './repos/CuringasRepo';
-import OkrRepo from './repos/OkrRepo';
-import Okr from './components/Okr/Okr';
+import Squad from './features/Squad';
+import SquadRepo from './features/SquadRepo';
+import CuringasRepo from './features/OneOnOne/CuringasRepo';
+import OkrRepo from './features/Okr/OkrRepo'
+import Okr from './features/Okr/Okr';
 
 const styles = theme => ({
   fab: {
@@ -54,7 +54,7 @@ class App extends React.Component {
     });
     this.timer = setInterval(() => {
       if (this.state.play) {
-        const newIndex = (this.state.index + 1) % (this.state.squads.length + 1);
+        const newIndex = (this.state.index + 1) % (this.state.squads.length + 1)
         this.setState({
           index: newIndex
         });
@@ -105,8 +105,8 @@ class App extends React.Component {
           {this.state.play ? (
             <PauseButton style={{ color: '#ffffff' }} />
           ) : (
-            <PlayButton style={{ color: '#ffffff' }} />
-          )}
+              <PlayButton style={{ color: '#ffffff' }} />
+            )}
         </Fab>
       </MuiThemeProvider>
     );

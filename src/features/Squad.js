@@ -1,10 +1,10 @@
 import React from 'react';
 import { Typography, Grid } from '@material-ui/core';
-import Cadencia from './Cadencia';
-import GembaCheck from './GembaCheck';
-import Membros from './Membros';
-import CheckExecucao from './CheckExecucao';
-import PlanoDeAcao from './PlanoDeAcao';
+import Cadencia from './Cadencia/Cadencia';
+import GembaCheck from './GembaCheck/GembaCheck';
+import Membros from './Membros/Membros';
+import CheckExecucao from './CheckExecucao/CheckExecucao';
+import PlanoDeAcao from './PlanoDeAcao/PlanoDeAcao';
 
 export const Squad = props => {
   return (

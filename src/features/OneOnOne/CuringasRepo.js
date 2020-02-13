@@ -13,7 +13,7 @@ class CuringasRepo {
         );
       })
       .catch(error => {
-        console.log(error);
+        console.log(`Erro na OneOnOne: ${error}`);
       });
   }
 

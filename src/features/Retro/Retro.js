@@ -2,7 +2,7 @@ import React from 'react';
 import { withStyles } from '@material-ui/core/styles';
 import { Table, TableHead, TableRow, TableCell, TableBody, Card } from '@material-ui/core';
 import ItemRetro from './ItemRetro';
-import RetroRepo from '../../repos/RetroRepo';
+import RetroRepo from './RetroRepo';
 
 const styles = theme => ({
   card: {
