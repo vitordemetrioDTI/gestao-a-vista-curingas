@@ -1,8 +1,9 @@
 import moment from 'moment';
 
-const corStatus = (meeting, escalado) => {
+
+const corStatus = (meeting, props) => {
   if (!meeting) {
-    return escalado;
+    return props.classes.Escalado
   }
   const dias = moment().diff(moment(meeting.lastMeeting), 'days');
   if (dias < 21) {
@@ -16,5 +17,6 @@ const corStatus = (meeting, escalado) => {
   }
 };
 
+export { corStatus }
 
-export default corStatus
+

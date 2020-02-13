@@ -53,7 +53,9 @@ class App extends React.Component {
     });
     this.timer = setInterval(() => {
       if (this.state.play) {
-        const newIndex = (this.state.index + 1) % (this.state.squads.length + 1)
+        const stateIndex = this.state.index + 1
+        const squadsLengthPlus = this.state.squads.length + 1
+        const newIndex = stateIndex % squadsLengthPlus
         this.setState({
           index: newIndex
         });

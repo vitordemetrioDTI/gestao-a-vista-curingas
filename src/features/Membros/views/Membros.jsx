@@ -1,9 +1,10 @@
 import React from 'react';
 import { Grid, Badge, Avatar, Typography } from '@material-ui/core';
 import EventAvailableIcon from '@material-ui/icons/EventAvailableRounded';
-import corStatus from '../MembrosUtils'
+import { corStatus } from '../MembrosUtils'
 
 export const Membros = props => {
+
   return (
     <Grid container spacing={2} align="center">
       {props.membros.map(membro => {
@@ -11,7 +12,7 @@ export const Membros = props => {
 
         if (props.crafters) {
           const crafter = props.crafters.find(crafter => crafter.email.includes(membro.login));
-          corStatusOneOnOne = corStatus(crafter.meeting, this.props.classes.Escalado);
+          corStatusOneOnOne = corStatus(crafter.meeting, props);
         }
 
         let avatar = (
@@ -55,5 +56,8 @@ export const Membros = props => {
     </Grid>
   );
 };
+
+
+
 
 export default Membros;
