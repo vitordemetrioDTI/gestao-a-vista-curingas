@@ -1,5 +1,6 @@
 import React from 'react';
 import { TableRow, TableCell, Typography, withStyles } from '@material-ui/core';
+import { corStatus } from '../RetroUtils'
 
 const styles = () => ({
   Pendente: {
@@ -32,7 +33,7 @@ class ItemRetro extends React.Component {
             {item.Responsavel}
           </Typography>
         </TableCell>
-        <TableCell className={this.corStatus(item.Status)} align="center" padding="none">
+        <TableCell className={corStatus(item.Status, this.props.classes)} align="center" padding="none">
           <Typography align="center" style={{ fontSize: 24, fontWeight: 200, color: '#ffffff' }}>
             {item.Status}
           </Typography>
@@ -40,21 +41,6 @@ class ItemRetro extends React.Component {
       </TableRow>
     );
   }
-
-  corStatus = status => {
-    switch (status) {
-      case 'Pendente':
-        return this.props.classes.Pendente;
-      case 'Concluído':
-        return this.props.classes.Concluido;
-      case 'Em andamento':
-        return this.props.classes.Andamento;
-      case 'Cancelado':
-        return this.props.classes.Cancelado;
-      default:
-        return this.props.classes.Cancelado;
-    }
-  };
 }
 
 export default withStyles(styles)(ItemRetro);

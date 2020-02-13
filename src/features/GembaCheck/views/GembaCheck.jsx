@@ -1,21 +1,16 @@
 import React from 'react';
 import ReactApexCharts from 'react-apexcharts';
+import { retornaSegundoItem, substituirScoreGemba, filtrarScoreGemba } from '../GembaCheckUtils'
 
-export const CheckExecucao = props => {
-  const scores = Object.entries(props.squad).filter(entry => {
-    return entry[0].includes('ScoreCE');
-  });
-  const categories = scores.map(entry => {
-    return entry[0].replace('ScoreCE', '');
-  });
-  const data = scores.map(entry => {
-    return entry[1];
-  });
+export const GembaCheck = props => {
+  const scores = filtrarScoreGemba(props);
+  const categories = substituirScoreGemba(scores);
+  const data = retornaSegundoItem(scores);
   return (
     <ReactApexCharts
       options={{
         chart: {
-          height: '20%',
+          height: 20,
           type: 'radar',
           background: 'rgba(41, 40, 61, 0)'
         },
@@ -29,10 +24,7 @@ export const CheckExecucao = props => {
           palette: 'palette8'
         },
         xaxis: {
-          categories: categories,
-          labels: {
-            show: true
-          }
+          categories: categories
         }
       }}
       series={[
@@ -47,4 +39,4 @@ export const CheckExecucao = props => {
   );
 };
 
-export default CheckExecucao;
+export default GembaCheck;

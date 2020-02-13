@@ -1,7 +1,7 @@
 import React from 'react';
-import Retro from './Retro/Retro';
-import Ritos from './Ritos/Ritos';
-import OneOnOne from './OneOnOne/OneOnOne';
+import Retro from './Retro';
+import Ritos from './Ritos';
+import OneOnOne from './OneOnOne';
 import { BasePage } from './BasePage';
 
 const pages = [

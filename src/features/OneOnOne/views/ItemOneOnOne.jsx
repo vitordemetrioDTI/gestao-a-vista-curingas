@@ -9,9 +9,10 @@ import {
   Avatar,
   CardMedia
 } from '@material-ui/core';
-import AssignmentIcon from '@material-ui/icons/Assignment';
-import LinesEllipsis from 'react-lines-ellipsis';
+// import AssignmentIcon from '@material-ui/icons/Assignment';
+// import LinesEllipsis from 'react-lines-ellipsis';
 import moment from 'moment';
+import { corStatus, prettyName } from '../OneOnOneUtils'
 
 const styles = () => ({
   Atrasado: {
@@ -33,7 +34,7 @@ class ItemOneOnOne extends React.Component {
     const { crafter } = this.props;
     return (
       <Grid item xs={1}>
-        <Card className={this.corStatus(crafter.meeting)}>
+        <Card className={corStatus(crafter.meeting, this.props.classes)}>
           <CardMedia
             style={{ height: '22vh' }}
             image={`./images/fotos/${crafter.email.split('@')[0]}.JPG`}
@@ -102,28 +103,7 @@ class ItemOneOnOne extends React.Component {
     );
   }
 
-  prettyName = email => {
-    return email
-      .split('@')[0]
-      .split('.')
-      .join(' ');
-  };
 
-  corStatus = meeting => {
-    if (!meeting) {
-      return this.props.classes.Escalado;
-    }
-    const dias = moment().diff(moment(meeting.lastMeeting), 'days');
-    if (dias < 21) {
-      return this.props.classes.EmDia;
-    } else if (dias < 30) {
-      return this.props.classes.Proximo;
-    } else if (dias < 45) {
-      return this.props.classes.Atrasado;
-    } else {
-      return this.props.classes.Escalado;
-    }
-  };
 }
 
 export default withStyles(styles)(ItemOneOnOne);

@@ -1,10 +1,11 @@
 import React from 'react';
 import { Grid, Typography, Container } from '@material-ui/core';
-import { groupBy, map } from 'lodash';
+import { map } from 'lodash';
 import KeyResult from './KeyResult';
+import { agruparPorObjetivos } from '../OkrUtils'
 
 export const Okr = props => {
-  const objectives = groupBy(props.okrs, 'Objetivo');
+  const objectives = agruparPorObjetivos(props);
 
   return (
     <Container
@@ -36,3 +37,6 @@ export const Okr = props => {
 };
 
 export default Okr;
+
+
+

@@ -15,9 +15,8 @@ import PauseButton from '@material-ui/icons/Pause';
 import PlayButton from '@material-ui/icons/PlayArrow';
 import Squad from './features/Squad';
 import SquadRepo from './features/SquadRepo';
-import CuringasRepo from './features/OneOnOne/CuringasRepo';
-import OkrRepo from './features/Okr/OkrRepo'
-import Okr from './features/Okr/Okr';
+import CuringasRepo from './features/OneOnOne';
+import { Okr, OkrRepo } from './features/Okr'
 
 const styles = theme => ({
   fab: {

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Grid, Typography } from '@material-ui/core';
-import moment from 'moment';
+import obterCorBackground from '../cadenciaUtils'
 
 export const Cadencia = props => {
   return (
@@ -34,15 +34,7 @@ export const Cadencia = props => {
 };
 
 const obterDataComFarol = data => {
-  const dias = moment().diff(data, 'days');
-  let backgroundColor = '#454545';
-  if (dias > 14) {
-    backgroundColor = '#e95d6a';
-  } else if (dias === 14) {
-    backgroundColor = '#f6b26b';
-  } else {
-    backgroundColor = '#57bb8a';
-  }
+  let backgroundColor = obterCorBackground(data);
   return (
     <Typography
       style={{

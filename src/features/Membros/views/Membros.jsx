@@ -1,7 +1,7 @@
 import React from 'react';
 import { Grid, Badge, Avatar, Typography } from '@material-ui/core';
 import EventAvailableIcon from '@material-ui/icons/EventAvailableRounded';
-import moment from 'moment';
+import corStatus from '../MembrosUtils'
 
 export const Membros = props => {
   return (
@@ -11,7 +11,7 @@ export const Membros = props => {
 
         if (props.crafters) {
           const crafter = props.crafters.find(crafter => crafter.email.includes(membro.login));
-          corStatusOneOnOne = corStatus(crafter.meeting);
+          corStatusOneOnOne = corStatus(crafter.meeting, this.props.classes.Escalado);
         }
 
         let avatar = (
@@ -54,22 +54,6 @@ export const Membros = props => {
       })}
     </Grid>
   );
-};
-
-const corStatus = meeting => {
-  if (!meeting) {
-    return this.props.classes.Escalado;
-  }
-  const dias = moment().diff(moment(meeting.lastMeeting), 'days');
-  if (dias < 21) {
-    return '#57bb8a';
-  } else if (dias < 30) {
-    return '#f6b26b';
-  } else if (dias < 45) {
-    return '#e95d6a';
-  } else {
-    return '#505050';
-  }
 };
 
 export default Membros;
