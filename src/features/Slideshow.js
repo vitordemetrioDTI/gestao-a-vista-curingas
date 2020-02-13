@@ -1,6 +1,5 @@
 import React from 'react';
 import Retro from './Retro/Retro';
-import Diagnostico from '../components/Diagnostico/Diagnostico';
 import Ritos from './Ritos/Ritos';
 import OneOnOne from './OneOnOne/OneOnOne';
 import { BasePage } from './BasePage';
