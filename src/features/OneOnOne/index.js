@@ -1,3 +1,3 @@
-import CuringasRepo from './CuringasRepo';
+import OneOnOneRepo from "./OneOnOneRepo";
 
-export default CuringasRepo
+export default OneOnOneRepo;

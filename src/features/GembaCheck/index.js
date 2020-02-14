@@ -1,5 +1,3 @@
-import GembaCheck from './views/GembaCheck'
-
-
+import GembaCheck from "./views/GembaCheck";
 
 export default GembaCheck;

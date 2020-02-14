@@ -1,22 +1,28 @@
-import React from 'react';
-import { Grid, Typography } from '@material-ui/core';
-import obterCorBackground from '../cadenciaUtils'
+import React from "react";
+import { Grid, Typography } from "@material-ui/core";
+import obterCorBackground from "../cadenciaUtils";
 
 export const Cadencia = props => {
   return (
     <Grid container align="center">
       <Grid item xs={4}>
-        <Typography style={{ fontSize: '1.6rem', fontWeight: 300, color: '#ffffff' }}>
+        <Typography
+          style={{ fontSize: "1.6rem", fontWeight: 300, color: "#ffffff" }}
+        >
           Check Arquitetural
         </Typography>
       </Grid>
       <Grid item xs={4}>
-        <Typography style={{ fontSize: '1.6rem', fontWeight: 300, color: '#ffffff' }}>
+        <Typography
+          style={{ fontSize: "1.6rem", fontWeight: 300, color: "#ffffff" }}
+        >
           Check de Execução
         </Typography>
       </Grid>
       <Grid item xs={4}>
-        <Typography style={{ fontSize: '1.6rem', fontWeight: 300, color: '#ffffff' }}>
+        <Typography
+          style={{ fontSize: "1.6rem", fontWeight: 300, color: "#ffffff" }}
+        >
           Retro do Squad
         </Typography>
       </Grid>
@@ -38,14 +44,14 @@ const obterDataComFarol = data => {
   return (
     <Typography
       style={{
-        width: '64%',
-        fontSize: '3rem',
+        width: "64%",
+        fontSize: "3rem",
         fontWeight: 900,
         backgroundColor: backgroundColor,
-        color: '#ffffff'
+        color: "#ffffff"
       }}
     >
-      {data.isValid() ? data.format('DD/MM') : 'NOVO'}
+      {data.isValid() ? data.format("DD/MM") : "NOVO"}
     </Typography>
   );
 };

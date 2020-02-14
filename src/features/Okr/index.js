@@ -1,4 +1,4 @@
-import Okr from './views/Okr'
-import OkrRepo from './OkrRepo'
+import Okr from "./views/Okr";
+import OkrRepo from "./OkrRepo";
 
 export { Okr, OkrRepo };

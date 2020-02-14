@@ -1,8 +1,8 @@
-import React from 'react';
-import { Grid, Typography, Container } from '@material-ui/core';
-import { map } from 'lodash';
-import KeyResult from './KeyResult';
-import { agruparPorObjetivos } from '../OkrUtils'
+import React from "react";
+import { Grid, Typography, Container } from "@material-ui/core";
+import { map } from "lodash";
+import KeyResult from "./KeyResult";
+import { agruparPorObjetivos } from "../OkrUtils";
 
 export const Okr = props => {
   const objectives = agruparPorObjetivos(props);
@@ -11,7 +11,7 @@ export const Okr = props => {
     <Container
       maxWidth="xl"
       style={{
-        height: '100%'
+        height: "100%"
       }}
     >
       <Grid container style={{ padding: 16 }}>
@@ -19,7 +19,13 @@ export const Okr = props => {
           return (
             <Grid container item xs={12} key={key} spacing={2}>
               <Grid item xs={12}>
-                <Typography style={{ fontSize: '1.6rem', fontWeight: 900, color: '#ffffff' }}>
+                <Typography
+                  style={{
+                    fontSize: "1.6rem",
+                    fontWeight: 900,
+                    color: "#ffffff"
+                  }}
+                >
                   {key}
                 </Typography>
               </Grid>
@@ -37,6 +43,3 @@ export const Okr = props => {
 };
 
 export default Okr;
-
-
-

@@ -1,5 +1,3 @@
-import CheckExecucao from './views/CheckExecucao'
-
-
+import CheckExecucao from "./views/CheckExecucao";
 
 export default CheckExecucao;

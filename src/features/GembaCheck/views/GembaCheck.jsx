@@ -1,6 +1,10 @@
-import React from 'react';
-import ReactApexCharts from 'react-apexcharts';
-import { retornaSegundoItem, substituirScoreGemba, filtrarScoreGemba } from '../GembaCheckUtils'
+import React from "react";
+import ReactApexCharts from "react-apexcharts";
+import {
+  retornaSegundoItem,
+  substituirScoreGemba,
+  filtrarScoreGemba
+} from "../GembaCheckUtils";
 
 export const GembaCheck = props => {
   const scores = filtrarScoreGemba(props);
@@ -11,17 +15,17 @@ export const GembaCheck = props => {
       options={{
         chart: {
           height: 20,
-          type: 'radar',
-          background: 'rgba(41, 40, 61, 0)'
+          type: "radar",
+          background: "rgba(41, 40, 61, 0)"
         },
-        colors: ['#57bb8a'],
+        colors: ["#57bb8a"],
         fill: {
-          colors: ['#57bb8a'],
+          colors: ["#57bb8a"],
           opacity: 0.9
         },
         theme: {
-          mode: 'dark',
-          palette: 'palette8'
+          mode: "dark",
+          palette: "palette8"
         },
         xaxis: {
           categories: categories
@@ -29,7 +33,7 @@ export const GembaCheck = props => {
       }}
       series={[
         {
-          name: '',
+          name: "",
           data: data
         }
       ]}

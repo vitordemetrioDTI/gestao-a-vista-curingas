@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   MuiThemeProvider,
   AppBar,
@@ -8,25 +8,25 @@ import {
   withStyles,
   Paper,
   Typography
-} from '@material-ui/core';
-import { map } from 'lodash';
-import Theme from './Theme';
-import PauseButton from '@material-ui/icons/Pause';
-import PlayButton from '@material-ui/icons/PlayArrow';
-import Squad from './features/Squad';
-import SquadRepo from './features/SquadRepo';
-import CuringasRepo from './features/OneOnOne';
-import { Okr, OkrRepo } from './features/Okr'
+} from "@material-ui/core";
+import { map } from "lodash";
+import Theme from "./Theme";
+import PauseButton from "@material-ui/icons/Pause";
+import PlayButton from "@material-ui/icons/PlayArrow";
+import Squad from "./features/Squad";
+import SquadRepo from "./features/SquadRepo";
+import OneOnOneRepo from "./features/OneOnOne";
+import { Okr, OkrRepo } from "./features/Okr";
 
 const styles = theme => ({
   fab: {
-    position: 'absolute',
+    position: "absolute",
     bottom: theme.spacing(2),
     right: theme.spacing(2)
   },
   pageView: {
     height: `calc(100vh - 48px)`,
-    backgroundColor: '#29283d',
+    backgroundColor: "#29283d",
     borderRadius: 0
   }
 });
@@ -38,7 +38,7 @@ class App extends React.Component {
   };
 
   componentDidMount() {
-    CuringasRepo.listarCuringas().then(crafters => {
+    OneOnOneRepo.listarCuringas().then(crafters => {
       this.setState({
         crafters: crafters
       });
@@ -53,9 +53,9 @@ class App extends React.Component {
     });
     this.timer = setInterval(() => {
       if (this.state.play) {
-        const stateIndex = this.state.index + 1
-        const squadsLengthPlus = this.state.squads.length + 1
-        const newIndex = stateIndex % squadsLengthPlus
+        const stateIndex = this.state.index + 1;
+        const squadsLengthPlus = this.state.squads.length + 1;
+        const newIndex = stateIndex % squadsLengthPlus;
         this.setState({
           index: newIndex
         });
@@ -77,37 +77,57 @@ class App extends React.Component {
     return (
       <MuiThemeProvider theme={Theme}>
         <AppBar position="static">
-          <Tabs value={index} onChange={this.handleChange} style={{ flexGrow: 1 }}>
+          <Tabs
+            value={index}
+            onChange={this.handleChange}
+            style={{ flexGrow: 1 }}
+          >
             {map(squads, (squad, i) => {
-              return <Tab wrapped key={squad.Squad} label={squad.Squad} value={i} />;
+              return (
+                <Tab wrapped key={squad.Squad} label={squad.Squad} value={i} />
+              );
             })}
-            {okrs && squads && <Tab wrapped key="okr" label="Okrs" value={squads.length} />}
+            {okrs && squads && (
+              <Tab wrapped key="okr" label="Okrs" value={squads.length} />
+            )}
           </Tabs>
           <Typography
             variant="overline"
-            style={{ position: 'absolute', right: '16px', top: '24px' }}
+            style={{ position: "absolute", right: "16px", top: "24px" }}
           >
             3.1.0
           </Typography>
         </AppBar>
 
         {map(squads, (squad, i) => (
-          <Paper className={classes.pageView} hidden={index !== i} key={squad.Squad}>
+          <Paper
+            className={classes.pageView}
+            hidden={index !== i}
+            key={squad.Squad}
+          >
             <Squad squad={squad} crafters={crafters} />
           </Paper>
         ))}
         {squads && okrs && (
-          <Paper className={classes.pageView} hidden={index < squads.length} key={'okr'}>
+          <Paper
+            className={classes.pageView}
+            hidden={index < squads.length}
+            key={"okr"}
+          >
             <Okr okrs={okrs} />
           </Paper>
         )}
 
-        <Fab onClick={this.handleClick} className={classes.fab} color="secondary">
+        <Fab
+          onClick={this.handleClick}
+          className={classes.fab}
+          color="secondary"
+        >
           {this.state.play ? (
-            <PauseButton style={{ color: '#ffffff' }} />
+            <PauseButton style={{ color: "#ffffff" }} />
           ) : (
-              <PlayButton style={{ color: '#ffffff' }} />
-            )}
+            <PlayButton style={{ color: "#ffffff" }} />
+          )}
         </Fab>
       </MuiThemeProvider>
     );

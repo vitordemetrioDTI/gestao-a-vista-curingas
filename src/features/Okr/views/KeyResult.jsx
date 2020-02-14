@@ -1,7 +1,13 @@
-import React from 'react';
-import { Typography, Grid } from '@material-ui/core';
-import ReactApexCharts from 'react-apexcharts';
-import { obterValores, obterAlvo, obterCategorias, obterDataSet, renderConfianca } from '../OkrUtils'
+import React from "react";
+import { Typography, Grid } from "@material-ui/core";
+import ReactApexCharts from "react-apexcharts";
+import {
+  obterValores,
+  obterAlvo,
+  obterCategorias,
+  obterDataSet,
+  renderConfianca
+} from "../OkrUtils";
 
 export const KeyResult = props => {
   const dataSet = obterDataSet(props);
@@ -11,7 +17,9 @@ export const KeyResult = props => {
   return (
     <Grid container>
       <Grid item xs={10}>
-        <Typography style={{ fontSize: '1rem', fontWeight: 300, color: '#ffffff' }}>
+        <Typography
+          style={{ fontSize: "1rem", fontWeight: 300, color: "#ffffff" }}
+        >
           {props.okr.KeyResult}
         </Typography>
       </Grid>
@@ -23,30 +31,30 @@ export const KeyResult = props => {
           options={{
             chart: {
               height: 20,
-              type: 'line',
-              background: 'rgba(41, 40, 61, 0)',
+              type: "line",
+              background: "rgba(41, 40, 61, 0)",
               toolbar: { show: false }
             },
-            colors: ['#1c68b1', '#57bb8a'],
+            colors: ["#1c68b1", "#57bb8a"],
             fill: {
-              type: 'solid',
+              type: "solid",
               opacity: [0.5, 1]
             },
             legend: { show: false },
-            theme: { mode: 'dark' },
+            theme: { mode: "dark" },
             xaxis: {
               categories: categories
             }
           }}
           series={[
             {
-              name: 'Okr',
-              type: 'area',
+              name: "Okr",
+              type: "area",
               data: values
             },
             {
-              name: 'Meta',
-              type: 'line',
+              name: "Meta",
+              type: "line",
               data: target
             }
           ]}
@@ -57,7 +65,5 @@ export const KeyResult = props => {
     </Grid>
   );
 };
-
-
 
 export default KeyResult;

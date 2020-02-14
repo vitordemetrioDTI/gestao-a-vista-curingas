@@ -1,70 +1,76 @@
-import React from 'react';
-import SentimentSatisfiedIcon from '@material-ui/icons/SentimentSatisfied';
-import SentimentDissatisfiedIcon from '@material-ui/icons/SentimentDissatisfied';
-import SentimentVerySatisfiedIcon from '@material-ui/icons/SentimentVerySatisfied';
-import { map, chain, groupBy } from 'lodash';
-import moment from 'moment';
+import React from "react";
+import SentimentSatisfiedIcon from "@material-ui/icons/SentimentSatisfied";
+import SentimentDissatisfiedIcon from "@material-ui/icons/SentimentDissatisfied";
+import SentimentVerySatisfiedIcon from "@material-ui/icons/SentimentVerySatisfied";
+import { map, chain, groupBy } from "lodash";
+import moment from "moment";
 
 //Usado no KeyResult.js
 
 const obterValores = dataSet => {
   return map(dataSet, data => data[1]);
-}
+};
 
 const obterAlvo = (dataSet, props) => {
   return map(dataSet, () => props.okr.Target);
-}
+};
 
 const obterCategorias = dataSet => {
-  return map(dataSet, data => data[0].format('D/M'));
-}
+  return map(dataSet, data => data[0].format("D/M"));
+};
 
 const obterDataSet = props => {
   return chain(props.okr)
-    .pickBy((value, key) => key.includes('/'))
-    .map((value, key) => [moment(key, 'DD/MM/YYYY'), value])
+    .pickBy((value, key) => key.includes("/"))
+    .map((value, key) => [moment(key, "DD/MM/YYYY"), value])
     .orderBy((value, key) => key)
     .value();
-}
+};
 
 const renderConfianca = confianca => {
   switch (confianca) {
-    case 'Baixa':
+    case "Baixa":
       return (
         <SentimentDissatisfiedIcon
           fontSize="large"
-          style={{ color: '#e95d6a' }}
+          style={{ color: "#e95d6a" }}
         ></SentimentDissatisfiedIcon>
       );
-    case 'Média':
+    case "Média":
       return (
         <SentimentSatisfiedIcon
           fontSize="large"
-          style={{ color: '#f6b26b' }}
+          style={{ color: "#f6b26b" }}
         ></SentimentSatisfiedIcon>
       );
-    case 'Alta':
+    case "Alta":
       return (
         <SentimentVerySatisfiedIcon
           fontSize="large"
-          style={{ color: '#57bb8a' }}
+          style={{ color: "#57bb8a" }}
         ></SentimentVerySatisfiedIcon>
       );
     default:
       return (
         <SentimentSatisfiedIcon
           fontSize="large"
-          style={{ color: '#f6b26b' }}
+          style={{ color: "#f6b26b" }}
         ></SentimentSatisfiedIcon>
       );
   }
 };
 
-
 // usado no OKR.js
 
 const agruparPorObjetivos = props => {
-  return groupBy(props.okrs, 'Objetivo');
-}
+  return groupBy(props.okrs, "Objetivo");
+};
 
-export { obterValores, obterAlvo, obterCategorias, obterDataSet, renderConfianca, agruparPorObjetivos }
+export {
+  obterValores,
+  obterAlvo,
+  obterCategorias,
+  obterDataSet,
+  renderConfianca,
+  agruparPorObjetivos
+};

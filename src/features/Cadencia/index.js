@@ -1,3 +1,3 @@
-import Cadencia from './views/Cadencia';
+import Cadencia from "./views/Cadencia";
 
 export { Cadencia };

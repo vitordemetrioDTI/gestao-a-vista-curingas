@@ -1,4 +1,3 @@
-import PlanoDeAcao from './views/PlanoDeAcao'
+import PlanoDeAcao from "./views/PlanoDeAcao";
 
-
-export default PlanoDeAcao
+export default PlanoDeAcao;
