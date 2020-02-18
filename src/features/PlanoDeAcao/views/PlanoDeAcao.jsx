@@ -4,7 +4,13 @@ import { Typography } from "@material-ui/core";
 export const PlanoDeAcao = props => {
   return (
     <Typography
-      style={{ fontSize: "1.2rem", fontWeight: 300, color: "#ffffff" }}
+      style={{
+        paddingBlockStart: "1em",
+        fontSize: "1.7rem",
+        fontWeight: "400",
+        color: "#ffffff",
+        marginBlockEnd: "10%"
+      }}
     >
       {props.squad.PlanoDeAcao}
     </Typography>

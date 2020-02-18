@@ -1,31 +1,44 @@
-import React from 'react';
-import { Typography, Grid } from '@material-ui/core';
-import { Cadencia } from './Cadencia';
-import GembaCheck from './GembaCheck';
-import Membros from './Membros';
-import CheckExecucao from './CheckExecucao';
-import PlanoDeAcao from './PlanoDeAcao';
+import React from "react";
+import { Typography, Grid } from "@material-ui/core";
+import { Cadencia } from "./Cadencia";
+import GembaCheck from "./GembaCheck";
+import CheckExecucao from "./CheckExecucao";
+import PlanoDeAcao from "./PlanoDeAcao";
+import Membros from "./Membros";
+
+let estiloTitulo = { fontSize: "2rem", fontWeight: 900, color: "#ffffff" };
 
 export const Squad = props => {
   return (
     <div
       style={{
-        height: '100%',
-        width: '100%',
+        // Scroll ativo
+        width: "auto",
+        height: "auto",
         backgroundImage: `url(${props.squad.Cover})`,
-        backgroundSize: 'cover',
-        overflow: 'hidden'
+        backgroundSize: "cover",
+        overflow: "hidden"
       }}
     >
       <div
         style={{
-          width: '100%',
-          height: '100%',
-          backgroundColor: '#29283ddd',
-          overflow: 'hidden'
+          // Degradê de Background preenchendo toda a página
+          width: "100%",
+          height: "100%",
+          backgroundColor: "#29283ddd",
+          overflow: "hidden"
         }}
       >
-        <Typography style={{ padding: 16, fontSize: '2.2rem', fontWeight: 900, color: '#ffffff' }}>
+        <Typography
+          style={{
+            // Nome dos squads
+            padding: 16,
+            fontSize: "2.2rem",
+            fontWeight: 1000,
+            color: "#ffffff",
+            marginLeft: "2%"
+          }}
+        >
           {props.squad.Squad}
         </Typography>
         <Grid container spacing={4} alignItems="flex-start">
@@ -33,22 +46,17 @@ export const Squad = props => {
             <Grid item xs={12}>
               <Cadencia squad={props.squad} />
             </Grid>
+
             <Grid item xs={6} align="center">
-              <Typography style={{ fontSize: '2rem', fontWeight: 900, color: '#ffffff' }}>
-                Gemba Check
-              </Typography>
+              <Typography style={estiloTitulo}>Gemba Check</Typography>
               <GembaCheck squad={props.squad} />
             </Grid>
             <Grid item xs={6} align="center">
-              <Typography style={{ fontSize: '2rem', fontWeight: 900, color: '#ffffff' }}>
-                Check de Execução
-              </Typography>
+              <Typography style={estiloTitulo}>Check de Execução</Typography>
               <CheckExecucao squad={props.squad} />
             </Grid>
             <Grid item xs={12} align="center">
-              <Typography style={{ fontSize: '2rem', fontWeight: 900, color: '#ffffff' }}>
-                Plano de Ação
-              </Typography>
+              <Typography style={estiloTitulo}>Plano de Ação</Typography>
               <PlanoDeAcao squad={props.squad} />
             </Grid>
           </Grid>

@@ -27,7 +27,7 @@ export const Membros = props => {
             src={`./images/fotos/${membro.login}.JPG`}
           />
         );
-        if (membro.login === "tiago.turibio") {
+        if (membro.plano) {
           avatar = (
             <Badge
               overlap="circle"

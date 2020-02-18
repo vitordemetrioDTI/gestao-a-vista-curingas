@@ -94,9 +94,7 @@ class App extends React.Component {
           <Typography
             variant="overline"
             style={{ position: "absolute", right: "16px", top: "24px" }}
-          >
-            3.1.0
-          </Typography>
+          ></Typography>
         </AppBar>
 
         {map(squads, (squad, i) => (
