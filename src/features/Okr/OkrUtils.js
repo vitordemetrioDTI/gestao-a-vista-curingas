@@ -5,8 +5,6 @@ import SentimentVerySatisfiedIcon from "@material-ui/icons/SentimentVerySatisfie
 import { map, chain, groupBy } from "lodash";
 import moment from "moment";
 
-//Usado no KeyResult.js
-
 const obterValores = dataSet => {
   return map(dataSet, data => data[1]);
 };
@@ -59,8 +57,6 @@ const renderConfianca = confianca => {
       );
   }
 };
-
-// usado no OKR.js
 
 const agruparPorObjetivos = props => {
   return groupBy(props.okrs, "Objetivo");

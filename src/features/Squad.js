@@ -34,7 +34,7 @@ export const Squad = props => {
             // Nome dos squads
             padding: 16,
             fontSize: "2.2rem",
-            fontWeight: 1000,
+            fontWeight: 600,
             color: "#ffffff",
             marginLeft: "2%"
           }}

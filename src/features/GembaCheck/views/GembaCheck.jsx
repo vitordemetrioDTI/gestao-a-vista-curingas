@@ -14,7 +14,6 @@ export const GembaCheck = props => {
     <ReactApexCharts
       options={{
         chart: {
-          // height: 20,
           type: "radar",
           background: "rgba(41, 40, 61, 0)"
         },

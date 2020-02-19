@@ -2,29 +2,19 @@ import React from "react";
 import { Grid, Typography } from "@material-ui/core";
 import obterCorBackground from "../cadenciaUtils";
 
+let estiloTitulo = { fontSize: "1.6rem", fontWeight: 300, color: "#ffffff" };
+
 export const Cadencia = props => {
   return (
     <Grid container align="center">
       <Grid item xs={4}>
-        <Typography
-          style={{ fontSize: "1.6rem", fontWeight: 300, color: "#ffffff" }}
-        >
-          Check Arquitetural
-        </Typography>
+        <Typography style={estiloTitulo}>Check Arquitetural</Typography>
       </Grid>
       <Grid item xs={4}>
-        <Typography
-          style={{ fontSize: "1.6rem", fontWeight: 300, color: "#ffffff" }}
-        >
-          Check de Execução
-        </Typography>
+        <Typography style={estiloTitulo}>Check de Execução</Typography>
       </Grid>
       <Grid item xs={4}>
-        <Typography
-          style={{ fontSize: "1.6rem", fontWeight: 300, color: "#ffffff" }}
-        >
-          Retro do Squad
-        </Typography>
+        <Typography style={estiloTitulo}>Retro do Squad</Typography>
       </Grid>
       <Grid item xs={4}>
         {obterDataComFarol(props.squad.DataCheckArquitetural)}

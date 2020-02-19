@@ -22,7 +22,7 @@ export const Okr = props => {
                 <Typography
                   style={{
                     fontSize: "1.6rem",
-                    fontWeight: 900,
+                    fontWeight: 700,
                     color: "#ffffff"
                   }}
                 >

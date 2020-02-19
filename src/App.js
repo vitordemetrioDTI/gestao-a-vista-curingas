@@ -108,7 +108,14 @@ class App extends React.Component {
         ))}
         {squads && okrs && (
           <Paper
-            className={classes.pageView}
+            style={{
+              // Scroll ativo
+              width: "auto",
+              height: "auto",
+              backgroundColor: "#29283ddd",
+              overflow: "hidden",
+              paddingBottom: "7%"
+            }}
             hidden={index < squads.length}
             key={"okr"}
           >
@@ -117,6 +124,7 @@ class App extends React.Component {
         )}
 
         <Fab
+          style={{ position: "fixed", bottom: "10px", right: "10px" }}
           onClick={this.handleClick}
           className={classes.fab}
           color="secondary"

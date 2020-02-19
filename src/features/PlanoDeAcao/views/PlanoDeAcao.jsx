@@ -9,7 +9,7 @@ export const PlanoDeAcao = props => {
         fontSize: "1.7rem",
         fontWeight: "400",
         color: "#ffffff",
-        marginBlockEnd: "10%"
+        marginBlockEnd: "15%"
       }}
     >
       {props.squad.PlanoDeAcao}
