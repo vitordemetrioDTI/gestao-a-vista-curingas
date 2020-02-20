@@ -4,7 +4,7 @@ import { Cadencia } from "./Cadencia";
 import GembaCheck from "./GembaCheck";
 import CheckExecucao from "./CheckExecucao";
 import PlanoDeAcao from "./PlanoDeAcao";
-import Membros from "./Membros";
+import { Membros } from "./Membros";
 
 let estiloTitulo = { fontSize: "2rem", fontWeight: 900, color: "#ffffff" };
 

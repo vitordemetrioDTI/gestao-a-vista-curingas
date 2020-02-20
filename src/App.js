@@ -17,6 +17,7 @@ import Squad from "./features/Squad";
 import SquadRepo from "./features/SquadRepo";
 import OneOnOneRepo from "./features/OneOnOne";
 import { Okr, OkrRepo } from "./features/Okr";
+import { MembrosRepo } from "./features/Membros";
 
 const styles = theme => ({
   fab: {
@@ -46,6 +47,11 @@ class App extends React.Component {
     SquadRepo.listarSquads().then(squads => {
       this.setState({
         squads: squads
+      });
+    });
+    MembrosRepo.listarMembros().then(membros => {
+      this.setState({
+        membros: membros
       });
     });
     OkrRepo.listarOkrs().then(okrs => {

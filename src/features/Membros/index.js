@@ -1,3 +1,4 @@
-import Membros from './views/Membros'
+import Membros from "./views/Membros";
+import MembrosRepo from "./MembrosRepo";
 
-export default Membros;
+export { Membros, MembrosRepo };
