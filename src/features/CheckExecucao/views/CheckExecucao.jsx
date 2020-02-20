@@ -1,10 +1,6 @@
-import React from "react";
-import ReactApexCharts from "react-apexcharts";
-import {
-  retornaSegundoItem,
-  substituirScoreCE,
-  filtrarScoresCE
-} from "../CheckExecucaoUtils";
+import React from 'react';
+import ReactApexCharts from 'react-apexcharts';
+import { retornaSegundoItem, substituirScoreCE, filtrarScoresCE } from '../CheckExecucaoUtils';
 
 export const CheckExecucao = props => {
   const scores = filtrarScoresCE(props);
@@ -14,29 +10,50 @@ export const CheckExecucao = props => {
     <ReactApexCharts
       options={{
         chart: {
-          height: "20%",
-          type: "radar",
-          background: "rgba(41, 40, 61, 0)"
+          type: 'radar',
+          background: 'rgba(41, 40, 61, 0)'
         },
-        colors: ["#57bb8a"],
+        plotOptions: {
+          radar: {
+            polygons: {
+              strokeColor: '#ffffff',
+              fill: {
+                colors: ['#ffffff20']
+              }
+            }
+          }
+        },
+        colors: ['#1c68b1'],
         fill: {
-          colors: ["#57bb8a"],
+          colors: ['#1c68b1'],
           opacity: 0.9
         },
+        markers: { size: 0 },
+        stroke: {
+          show: false
+        },
         theme: {
-          mode: "dark",
-          palette: "palette8"
+          mode: 'dark',
+          palette: 'palette8'
+        },
+        yaxis: {
+          show: false
         },
         xaxis: {
           categories: categories,
           labels: {
-            show: true
+            show: true,
+            style: {
+              colors: ['#ffffff'],
+              fontSize: '0.8rem',
+              fontFamily: 'Poppins'
+            }
           }
         }
       }}
       series={[
         {
-          name: "",
+          name: '',
           data: data
         }
       ]}
