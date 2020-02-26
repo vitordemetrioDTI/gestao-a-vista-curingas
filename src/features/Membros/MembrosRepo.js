@@ -7,7 +7,6 @@ class MembrosRepo {
         `https://docs.google.com/spreadsheets/d/e/2PACX-1vT-B4xEWT8OUz-Vuk53ofBxpglD0Qh_Rik3uZId3Uz-7Z_qjJfGgdNOmWp69-u0sDHAoFDcFe_48K3k/pub?gid=1653355093&single=true&output=tsv`
       )
       .then(response => {
-        console.log(`Entrou no repositorio de membros`);
         var linha = response.data.split("\r\n");
         var result = [];
         var cabecalho = linha[0].split("\t");
@@ -33,7 +32,7 @@ class MembrosRepo {
           }
           result.push(obj);
         }
-
+        // console.log(result);
         return result;
       })
       .catch(error => {

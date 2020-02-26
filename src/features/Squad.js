@@ -61,7 +61,11 @@ export const Squad = props => {
             </Grid>
           </Grid>
           <Grid item xs={4}>
-            <Membros membros={props.squad.Membros} crafters={props.crafters} />
+            <Membros
+              Membros={props.squad.Membros}
+              crafters={props.crafters}
+              membros={props.membros}
+            />
           </Grid>
         </Grid>
       </div>

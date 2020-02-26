@@ -68,7 +68,6 @@ class App extends React.Component {
       }
     }, 30 * 1000);
   }
-
   handleChange = (e, value) => {
     this.setState({ index: value });
   };
@@ -78,8 +77,9 @@ class App extends React.Component {
   };
 
   render() {
-    const { index, squads, crafters, okrs } = this.state;
+    const { index, squads, crafters, okrs, membros } = this.state;
     const { classes } = this.props;
+
     return (
       <MuiThemeProvider theme={Theme}>
         <AppBar position="static">
@@ -109,7 +109,7 @@ class App extends React.Component {
             hidden={index !== i}
             key={squad.Squad}
           >
-            <Squad squad={squad} crafters={crafters} />
+            <Squad squad={squad} crafters={crafters} membros={membros} />
           </Paper>
         ))}
         {squads && okrs && (
