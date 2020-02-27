@@ -38,7 +38,7 @@ class App extends React.Component {
     play: true
   };
 
-  componentDidMount() {
+  UNSAFE_componentWillMount() {
     OneOnOneRepo.listarCuringas().then(crafters => {
       this.setState({
         crafters: crafters
@@ -49,11 +49,24 @@ class App extends React.Component {
         squads: squads
       });
     });
-    MembrosRepo.listarMembros().then(membros => {
+    MembrosRepo.listarMembros().then(resposta => {
+      const membros = [];
+      for (let j = 0; j < this.state.squads.length; j++) {
+        for (let i = 0; i < resposta.length; i++) {
+          if (resposta[i].squad === this.state.squads[j].Squad) {
+            var squad = resposta.filter(resp =>
+              resp.squad.includes(this.state.squads[j].Squad)
+            );
+          }
+        }
+        console.log(`o squad aux`, squad);
+        membros.push(squad);
+      }
       this.setState({
         membros: membros
       });
     });
+
     OkrRepo.listarOkrs().then(okrs => {
       this.setState({ okrs: okrs });
     });
@@ -68,6 +81,7 @@ class App extends React.Component {
       }
     }, 30 * 1000);
   }
+
   handleChange = (e, value) => {
     this.setState({ index: value });
   };
@@ -102,16 +116,19 @@ class App extends React.Component {
             style={{ position: "absolute", right: "16px", top: "24px" }}
           ></Typography>
         </AppBar>
-
-        {map(squads, (squad, i) => (
-          <Paper
-            className={classes.pageView}
-            hidden={index !== i}
-            key={squad.Squad}
-          >
-            <Squad squad={squad} crafters={crafters} membros={membros} />
-          </Paper>
-        ))}
+        {// Só será executado quando o state membros estiver inicializado... Garantindo que a será enviado a props na ordem correta
+        this.state.membros &&
+          map(squads, (squad, i) => {
+            return (
+              <Paper
+                className={classes.pageView}
+                hidden={index !== i}
+                key={squad.Squad}
+              >
+                <Squad squad={squad} crafters={crafters} membros={membros[i]} />
+              </Paper>
+            );
+          })}
         {squads && okrs && (
           <Paper
             style={{

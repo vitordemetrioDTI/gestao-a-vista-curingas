@@ -6,14 +6,12 @@ import { corStatus } from "../MembrosUtils";
 export const Membros = props => {
   return (
     <Grid container spacing={2} align="center">
-      {props.Membros.map(membro => {
+      {props.membros.map(membro => {
         let corStatusOneOnOne = "#1c68b1";
-
         if (props.crafters) {
           const crafter = props.crafters.find(crafter =>
             crafter.email.includes(membro.login)
           );
-
           corStatusOneOnOne = corStatus(crafter.meeting, props);
         }
 
