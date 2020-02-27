@@ -32,7 +32,6 @@ class MembrosRepo {
           }
           result.push(obj);
         }
-        // console.log(result);
         return result;
       })
       .catch(error => {

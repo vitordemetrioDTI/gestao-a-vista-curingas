@@ -1,6 +1,10 @@
-import React from 'react';
-import ReactApexCharts from 'react-apexcharts';
-import { retornaSegundoItem, substituirScoreGemba, filtrarScoreGemba } from '../GembaCheckUtils';
+import React from "react";
+import ReactApexCharts from "react-apexcharts";
+import {
+  retornaSegundoItem,
+  substituirScoreGemba,
+  filtrarScoreGemba
+} from "../GembaCheckUtils";
 
 export const GembaCheck = props => {
   const scores = filtrarScoreGemba(props);
@@ -10,22 +14,22 @@ export const GembaCheck = props => {
     <ReactApexCharts
       options={{
         chart: {
-          type: 'radar',
-          background: 'rgba(41, 40, 61, 0)'
+          type: "radar",
+          background: "rgba(41, 40, 61, 0)"
         },
         plotOptions: {
           radar: {
             polygons: {
-              strokeColor: '#ffffff',
+              strokeColor: "#ffffff",
               fill: {
-                colors: ['#ffffff20']
+                colors: ["#ffffff20"]
               }
             }
           }
         },
-        colors: ['#1c68b1'],
+        colors: ["#1c68b1"],
         fill: {
-          colors: ['#1c68b1'],
+          colors: ["#1c68b1"],
           opacity: 0.9
         },
         markers: { size: 0 },
@@ -33,8 +37,8 @@ export const GembaCheck = props => {
           show: false
         },
         theme: {
-          mode: 'dark',
-          palette: 'palette8'
+          mode: "dark",
+          palette: "palette8"
         },
         yaxis: {
           show: false
@@ -44,16 +48,16 @@ export const GembaCheck = props => {
           labels: {
             show: true,
             style: {
-              colors: ['#ffffff'],
-              fontSize: '0.8rem',
-              fontFamily: 'Poppins'
+              colors: ["#ffffff"],
+              fontSize: "0.7rem",
+              fontFamily: "Poppins"
             }
           }
         }
       }}
       series={[
         {
-          name: '',
+          name: "",
           data: data
         }
       ]}
