@@ -56,7 +56,11 @@ export const Membros = props => {
           <Grid item xs={4} key={membro.login}>
             {avatar}
             <Typography
-              style={{ fontSize: "1.6rem", fontWeight: 600, color: "#ffffff" }}
+              style={{
+                fontSize: "1.6rem",
+                fontWeight: 600,
+                color: "#ffffff"
+              }}
             >
               {membro.nome}
             </Typography>

@@ -38,35 +38,27 @@ class App extends React.Component {
     play: true
   };
 
-  UNSAFE_componentWillMount() {
+  componentWillMount() {
     OneOnOneRepo.listarCuringas().then(crafters => {
       this.setState({
         crafters: crafters
       });
     });
     SquadRepo.listarSquads().then(squads => {
-      this.setState({
-        squads: squads
+      MembrosRepo.listarMembros().then(todosMembros => {
+        const membros = [];
+        squads.forEach(squad => {
+          var membrosSquad = todosMembros.filter(resposta =>
+            resposta.squad.includes(squad.Squad)
+          );
+          membros.push(membrosSquad);
+        });
+        this.setState({
+          squads: squads,
+          membros: membros
+        });
       });
     });
-    MembrosRepo.listarMembros().then(resposta => {
-      const membros = [];
-      for (let j = 0; j < this.state.squads.length; j++) {
-        for (let i = 0; i < resposta.length; i++) {
-          if (resposta[i].squad === this.state.squads[j].Squad) {
-            var squad = resposta.filter(resp =>
-              resp.squad.includes(this.state.squads[j].Squad)
-            );
-          }
-        }
-        console.log(`o squad aux`, squad);
-        membros.push(squad);
-      }
-      this.setState({
-        membros: membros
-      });
-    });
-
     OkrRepo.listarOkrs().then(okrs => {
       this.setState({ okrs: okrs });
     });
@@ -81,11 +73,9 @@ class App extends React.Component {
       }
     }, 30 * 1000);
   }
-
   handleChange = (e, value) => {
     this.setState({ index: value });
   };
-
   handleClick = () => {
     this.setState({ play: !this.state.play });
   };
