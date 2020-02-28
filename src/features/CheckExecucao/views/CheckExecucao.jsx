@@ -4,9 +4,9 @@ import {
   retornaSegundoItem,
   substituirScoreCE,
   filtrarScoresCE
-} from "../CheckExecucaoUtils";
+} from "../checkExecucaoUtils";
 
-export const CheckExecucao = props => {
+export const checkExecucao = props => {
   const scores = filtrarScoresCE(props);
   const categories = substituirScoreCE(scores);
   const data = retornaSegundoItem(scores);
@@ -67,4 +67,4 @@ export const CheckExecucao = props => {
   );
 };
 
-export default CheckExecucao;
+export default checkExecucao;

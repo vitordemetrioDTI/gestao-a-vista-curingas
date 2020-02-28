@@ -1,3 +1,3 @@
-import PlanoDeAcao from "./views/PlanoDeAcao";
+import PlanoDeAcao from "./views/planoDeAcao";
 
 export default PlanoDeAcao;

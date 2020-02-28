@@ -4,9 +4,9 @@ import {
   retornaSegundoItem,
   substituirScoreGemba,
   filtrarScoreGemba
-} from "../GembaCheckUtils";
+} from "../gembaCheckUtils";
 
-export const GembaCheck = props => {
+export const gembaCheck = props => {
   const scores = filtrarScoreGemba(props);
   const categories = substituirScoreGemba(scores);
   const data = retornaSegundoItem(scores);
@@ -67,4 +67,4 @@ export const GembaCheck = props => {
   );
 };
 
-export default GembaCheck;
+export default gembaCheck;

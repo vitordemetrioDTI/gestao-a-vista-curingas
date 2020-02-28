@@ -7,9 +7,9 @@ import {
   obterCategorias,
   obterDataSet,
   renderConfianca
-} from "../OkrUtils";
+} from "../okrUtils";
 
-export const KeyResult = props => {
+export const keyResult = props => {
   const dataSet = obterDataSet(props);
   const categories = obterCategorias(dataSet);
   const target = obterAlvo(dataSet, props);
@@ -66,4 +66,4 @@ export const KeyResult = props => {
   );
 };
 
-export default KeyResult;
+export default keyResult;

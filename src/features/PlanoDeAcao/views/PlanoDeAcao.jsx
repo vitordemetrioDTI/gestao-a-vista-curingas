@@ -1,7 +1,7 @@
 import React from "react";
 import { Typography } from "@material-ui/core";
 
-export const PlanoDeAcao = props => {
+export const planoDeAcao = props => {
   return (
     <Typography
       style={{
@@ -17,4 +17,4 @@ export const PlanoDeAcao = props => {
   );
 };
 
-export default PlanoDeAcao;
+export default planoDeAcao;

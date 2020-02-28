@@ -4,7 +4,7 @@ import obterCorBackground from "../cadenciaUtils";
 
 let estiloTitulo = { fontSize: "1.6rem", fontWeight: 300, color: "#ffffff" };
 
-export const Cadencia = props => {
+export const cadencia = props => {
   return (
     <Grid container align="center">
       <Grid item xs={4}>
@@ -46,4 +46,4 @@ const obterDataComFarol = data => {
   );
 };
 
-export default Cadencia;
+export default cadencia;

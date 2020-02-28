@@ -1,9 +1,9 @@
 import React from "react";
 import { Grid, Badge, Avatar, Typography } from "@material-ui/core";
 import EventAvailableIcon from "@material-ui/icons/EventAvailableRounded";
-import { corStatus } from "../MembrosUtils";
+import { corStatus } from "../membrosUtils";
 
-export const Membros = props => {
+export const membros = props => {
   return (
     <Grid container spacing={2} align="center">
       {props.membros.map(membro => {
@@ -71,4 +71,4 @@ export const Membros = props => {
   );
 };
 
-export default Membros;
+export default membros;

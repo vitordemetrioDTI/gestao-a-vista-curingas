@@ -1,10 +1,10 @@
 import React from "react";
 import { Grid, Typography, Container } from "@material-ui/core";
 import { map } from "lodash";
-import KeyResult from "./KeyResult";
-import { agruparPorObjetivos } from "../OkrUtils";
+import KeyResult from "./keyResult";
+import { agruparPorObjetivos } from "../okrUtils";
 
-export const Okr = props => {
+export const okr = props => {
   const objectives = agruparPorObjetivos(props);
 
   return (
@@ -42,4 +42,4 @@ export const Okr = props => {
   );
 };
 
-export default Okr;
+export default okr;
