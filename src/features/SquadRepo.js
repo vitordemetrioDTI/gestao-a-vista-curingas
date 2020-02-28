@@ -22,8 +22,6 @@ class SquadRepo {
               obj[headers[j]] = moment(currentline[j], "DD/MM/YYYY");
             } else if (headers[j].includes("Score")) {
               obj[headers[j]] = Number(currentline[j].replace(",", "."));
-            } else if (headers[j].includes("Membros")) {
-              obj[headers[j]] = JSON.parse(currentline[j]);
             } else {
               obj[headers[j]] = currentline[j];
             }
