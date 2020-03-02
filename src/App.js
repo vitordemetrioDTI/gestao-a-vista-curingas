@@ -62,7 +62,6 @@ class App extends React.Component {
           map(squads, (squad, i) => {
             return (
               <Paper className={classes.pageView} hidden={index !== i} key={squad.Squad}>
-                {console.log(this.state)}
                 <Squad squad={squad} crafters={crafters} membros={membros[squad.Squad]} />
               </Paper>
             );
