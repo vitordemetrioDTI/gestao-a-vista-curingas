@@ -8,7 +8,7 @@ import Squad from "./features/Squad";
 import SquadRepo from "./features/SquadRepo";
 import OneOnOneRepo from "./features/OneOnOne";
 import { Okr, OkrRepo } from "./features/Okr";
-import { MembrosRepo } from "./features/Membros";
+import { MembrosRepo, tratarMembros, membrosParaObjetos } from "./features/Membros";
 
 class App extends React.Component {
   state = {
@@ -18,21 +18,12 @@ class App extends React.Component {
 
   async UNSAFE_componentWillMount() {
     const crafters = await OneOnOneRepo.listarCuringas();
-    this.setState({ crafters: crafters });
-
     const squads = await SquadRepo.listarSquads();
-    const todosMembros = await MembrosRepo.listarMembros();
-
-    const membrosObjeto = squads.reduce((acumulador, squad) => {
-      var membrosSquad = todosMembros.filter(resposta => resposta.squad.includes(squad.Squad));
-      if (membrosSquad.length) acumulador[squad.Squad] = membrosSquad;
-      return acumulador;
-    }, {});
-
-    this.setState({ squads: squads, membros: membrosObjeto });
-
+    const tsvMembros = await MembrosRepo.listarMembros();
+    const todosMembros = tratarMembros(tsvMembros);
+    const membrosObjeto = membrosParaObjetos(squads, todosMembros);
     const okrs = await OkrRepo.listarOkrs();
-    this.setState({ okrs: okrs });
+    this.setState({ squads: squads, membros: membrosObjeto, okrs: okrs, crafters: crafters });
 
     this.timer = setInterval(() => {
       if (this.state.play) {
@@ -71,6 +62,7 @@ class App extends React.Component {
           map(squads, (squad, i) => {
             return (
               <Paper className={classes.pageView} hidden={index !== i} key={squad.Squad}>
+                {console.log(this.state)}
                 <Squad squad={squad} crafters={crafters} membros={membros[squad.Squad]} />
               </Paper>
             );

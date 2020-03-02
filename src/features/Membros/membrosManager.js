@@ -1,29 +1,25 @@
 const tratarMembros = membrosTSV => {
-  var linha = membrosTSV.data.split("\r\n");
-  var result = [];
-  var cabecalho = linha[0].split("\t");
+  const linha = membrosTSV.data.split("\r\n");
+  const cabecalhos = linha[0].split("\t");
 
-  for (var i = 1; i < linha.length; i++) {
-    var obj = {};
-    var linhaAtual = linha[i].split("\t");
-    for (var j = 0; j < cabecalho.length; j++) {
-      if (cabecalho[j].includes("squad")) {
-        obj[cabecalho[j]] = linhaAtual[j];
-      } else if (cabecalho[j].includes("login")) {
-        obj[cabecalho[j]] = linhaAtual[j];
-      } else if (cabecalho[j].includes("nome")) {
-        obj[cabecalho[j]] = linhaAtual[j];
-      } else if (cabecalho[j].includes("plano")) {
-        if (Boolean(linhaAtual[j]) === true) {
-          obj[cabecalho[j]] = Boolean(linhaAtual[j]);
-        } else {
-          obj[cabecalho[j]] = false;
-        }
-      }
+  const result = linha.map(item => {
+    const obj = {};
+    const linhaAtual = item.split("\t");
+    for (let j = 0; j < cabecalhos.length; j++) {
+      obj[cabecalhos[j]] = linhaAtual[j];
     }
-    result.push(obj);
-  }
+    return obj;
+  });
+
   return result;
 };
 
-export default tratarMembros;
+const membrosParaObjetos = (squads, todosMembros) => {
+  return squads.reduce((acumulador, squad) => {
+    var membrosSquad = todosMembros.filter(resposta => resposta.squad.includes(squad.Squad));
+    if (membrosSquad.length) acumulador[squad.Squad] = membrosSquad;
+    return acumulador;
+  }, {});
+};
+
+export { tratarMembros, membrosParaObjetos };
