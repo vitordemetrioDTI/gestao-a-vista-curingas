@@ -10,7 +10,6 @@ const tratarMembros = membrosTSV => {
     }
     return obj;
   });
-
   return result;
 };
 

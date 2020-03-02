@@ -29,7 +29,7 @@ class SquadRepo {
 
           result.push(obj);
         }
-
+        console.log(result);
         return result;
       })
       .catch(error => {
