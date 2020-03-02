@@ -4,9 +4,8 @@ class MembrosRepo {
   async listarMembros() {
     try {
       const options = {
-        headers: {
-          "Access-Control-Allow-Headers": "https://dtidigitalcrafters.github.io",
-          "Access-Control-Allow-Origin": "https://dtidigitalcrafters.github.io"
+        HEADERS: {
+          "Access-Control-Allow-Origin": "*"
         }
       };
       const tsvMembros = await axios.get(

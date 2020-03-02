@@ -4,9 +4,8 @@ import moment from "moment";
 class SquadRepo {
   async listarSquads() {
     const options = {
-      headers: {
-        "Access-Control-Allow-Headers": "https://dtidigitalcrafters.github.io",
-        "Access-Control-Allow-Origin": "https://dtidigitalcrafters.github.io"
+      HEADERS: {
+        "Access-Control-Allow-Origin": "*"
       }
     };
     return axios
@@ -36,7 +35,6 @@ class SquadRepo {
 
           result.push(obj);
         }
-        console.log(result);
         return result;
       })
       .catch(error => {
