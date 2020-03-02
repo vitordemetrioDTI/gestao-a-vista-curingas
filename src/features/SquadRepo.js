@@ -3,7 +3,12 @@ import moment from "moment";
 
 class SquadRepo {
   async listarSquads() {
-    const options = { headers: { "Access-Control-Allow-Origin": "https://dtidigitalcrafters.github.io" } };
+    const options = {
+      headers: {
+        "Access-Control-Allow-Headers": "https://dtidigitalcrafters.github.io",
+        "Access-Control-Allow-Origin": "https://dtidigitalcrafters.github.io"
+      }
+    };
     return axios
       .get(
         `https://docs.google.com/spreadsheets/d/e/2PACX-1vSpC_x6FOQi7QOG4-gFFZzgIp_BCHZEKLHy8PoJpA9twqOAsRVMUerK9BEhglaI92K58qjW4DOFFkMC/pub?gid=766563780&single=true&output=tsv`,
@@ -35,7 +40,7 @@ class SquadRepo {
         return result;
       })
       .catch(error => {
-        console.log(error);
+        console.log(`Erro no repositório de ritos:`, error);
       });
   }
 }
