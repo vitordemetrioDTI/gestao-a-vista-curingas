@@ -5,6 +5,7 @@ class MembrosRepo {
     try {
       const options = {
         HEADERS: {
+          "Access-Control-Allow-Headers": "*",
           "Access-Control-Allow-Origin": "*"
         }
       };

@@ -5,6 +5,7 @@ class SquadRepo {
   async listarSquads() {
     const options = {
       HEADERS: {
+        "Access-Control-Allow-Headers": "*",
         "Access-Control-Allow-Origin": "*"
       }
     };
