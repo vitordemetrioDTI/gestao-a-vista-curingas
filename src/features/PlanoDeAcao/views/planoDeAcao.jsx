@@ -7,16 +7,14 @@ export const planoDeAcao = props => {
   const planosDeAcao = props.membros.map(membro => {
     if (membro.plano) {
       return (
-        <Box key={membro.login} display="flex" flexDirection="row" justifyContent="center">
+        <Box key={membro.plano} display="flex" flexDirection="row" justifyContent="center">
           <Box p={1} flexDirection="row">
             <Avatar className={classes.avatar} style={{ backgroundColor: membro.cor }}>
               <Typography className={classes.numero}>♠</Typography>
             </Avatar>
           </Box>
           <Box>
-            <Typography key={membro.login} className={classes.typography}>
-              {membro.plano}
-            </Typography>
+            <Typography className={classes.typography}>{membro.plano}</Typography>
           </Box>
         </Box>
       );
