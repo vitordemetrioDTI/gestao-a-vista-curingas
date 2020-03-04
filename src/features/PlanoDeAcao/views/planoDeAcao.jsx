@@ -1,20 +1,41 @@
 import React from "react";
-import { Typography } from "@material-ui/core";
+import { Typography, withStyles, Avatar, Box } from "@material-ui/core";
 
 export const planoDeAcao = props => {
-  return (
-    <Typography
-      style={{
-        paddingBlockStart: "1em",
-        fontSize: "1.7rem",
-        fontWeight: "400",
-        color: "#ffffff",
-        marginBlockEnd: "15%"
-      }}
-    >
-      {props.squad.PlanoDeAcao}
-    </Typography>
-  );
+  const { classes } = props;
+
+  const planosDeAcao = props.membros.map(membro => {
+    if (membro.plano) {
+      return (
+        <Box key={membro.plano} display="flex" flexDirection="row" justifyContent="center">
+          <Box p={1} flexDirection="row">
+            <Avatar className={classes.avatar} style={{ backgroundColor: membro.cor }}>
+              <Typography className={classes.numero}>♠</Typography>
+            </Avatar>
+          </Box>
+          <Box>
+            <Typography className={classes.typography}>{membro.plano}</Typography>
+          </Box>
+        </Box>
+      );
+    } else {
+      return null;
+    }
+  });
+  return planosDeAcao;
 };
 
-export default planoDeAcao;
+const styles = estilo => ({
+  typography: {
+    paddingBlockEnd: "0.5em",
+    fontSize: "1.4rem",
+    fontWeight: "400",
+    color: "#ffffff"
+  },
+  avatar: {
+    height: "20px",
+    width: "20px"
+  }
+});
+
+export default withStyles(styles)(planoDeAcao);

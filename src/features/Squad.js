@@ -6,7 +6,7 @@ import CheckExecucao from "./CheckExecucao";
 import PlanoDeAcao from "./PlanoDeAcao";
 import { Membros } from "./Membros";
 
-let estiloTitulo = { fontSize: "2rem", fontWeight: 900, color: "#ffffff" };
+let estiloTitulo = { fontSize: "2rem", fontWeight: 900, color: "#ffffff", marginBlockEnd: "2%" };
 
 export const Squad = props => {
   return (
@@ -57,7 +57,8 @@ export const Squad = props => {
             </Grid>
             <Grid item xs={12} align="center">
               <Typography style={estiloTitulo}>Plano de Ação</Typography>
-              <PlanoDeAcao squad={props.squad} />
+              <PlanoDeAcao membros={props.membros} />
+              <Typography style={{ marginBlockEnd: "100px" }}> </Typography>
             </Grid>
           </Grid>
           <Grid item xs={4}>
