@@ -4,7 +4,7 @@ import moment from "moment";
 class SquadRepo {
   async listarSquads() {
     const options = {
-      HEADERS: {
+      headers: {
         "Access-Control-Allow-Headers": "*",
         "Access-Control-Allow-Origin": "*"
       }
