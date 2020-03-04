@@ -36,7 +36,7 @@ export const membros = props => {
                 <Avatar
                   className={classes.marcadorPlanoDeAcao}
                   style={{
-                    backgroundColor: corStatusOneOnOne
+                    backgroundColor: membro.cor
                   }}
                 >
                   <EventAvailableIcon className={classes.evento} />

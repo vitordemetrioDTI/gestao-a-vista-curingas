@@ -1,3 +1,5 @@
+import { corPlano } from "./membrosUtils";
+
 const tratarMembros = membrosTSV => {
   const linha = membrosTSV.data.split("\r\n");
   const cabecalhos = linha[0].toLowerCase().split("\t");
@@ -9,6 +11,7 @@ const tratarMembros = membrosTSV => {
       if (cabecalhos[j] === "plano de ação") cabecalhos[j] = "plano";
       obj[cabecalhos[j]] = linhaAtual[j];
     }
+    if (obj.plano) obj["cor"] = corPlano();
     return obj;
   });
   return result;

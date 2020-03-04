@@ -4,13 +4,12 @@ class MembrosRepo {
   async listarMembros() {
     try {
       const options = {
-        HEADERS: {
-          "Access-Control-Allow-Headers": "*",
-          "Access-Control-Allow-Origin": "*"
-        }
+        method: "GET",
+        headers: {}
       };
+
       const tsvMembros = await axios.get(
-        `https://docs.google.com/spreadsheets/d/e/2PACX-1vTWT4a0f2LiImueR6bJ4kadEb7YRalPFkJnY5UNmPQlRmKTWUFzvqm_0NPmFe5fM9-X-yNbviXX79QX/pub?gid=1877599560&single=true&output=tsv`,
+        "https://docs.google.com/spreadsheets/d/e/2PACX-1vTWT4a0f2LiImueR6bJ4kadEb7YRalPFkJnY5UNmPQlRmKTWUFzvqm_0NPmFe5fM9-X-yNbviXX79QX/pub?gid=1877599560&single=true&output=tsv",
         options
       );
       return tsvMembros;
