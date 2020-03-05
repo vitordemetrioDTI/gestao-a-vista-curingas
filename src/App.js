@@ -6,7 +6,7 @@ import PauseButton from "@material-ui/icons/Pause";
 import PlayButton from "@material-ui/icons/PlayArrow";
 import Squad from "./features/Squad";
 import SquadRepo from "./features/SquadRepo";
-import OneOnOneRepo from "./features/OneOnOne";
+// import OneOnOneRepo from "./features/OneOnOne";
 import { Okr, OkrRepo } from "./features/Okr";
 import { MembrosRepo, tratarMembros, membrosParaObjetos } from "./features/Membros";
 
@@ -17,7 +17,8 @@ class App extends React.Component {
   };
 
   async UNSAFE_componentWillMount() {
-    const crafters = await OneOnOneRepo.listarCuringas();
+    // const crafters = await OneOnOneRepo.listarCuringas();
+    const crafters = "error";
     const squads = await SquadRepo.listarSquads();
     const tsvMembros = await MembrosRepo.listarMembros();
     const todosMembros = tratarMembros(tsvMembros);
