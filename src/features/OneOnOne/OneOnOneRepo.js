@@ -7,10 +7,7 @@ class OneOnOneRepo {
     return axios
       .get(`https://one-on-ones-dti.herokuapp.com/api/data_tribe/Curingas`)
       .then(response => {
-        return _.filter(
-          response.data.crafters,
-          crafter => crafter.email !== "leonardo.goncalves@dtidigital.com.br"
-        );
+        return _.filter(response.data.crafters, crafter => crafter.email !== "leonardo.goncalves@dtidigital.com.br");
       })
       .catch(error => {
         console.log(`Erro na OneOnOne: ${error}`);
