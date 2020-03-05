@@ -5,7 +5,7 @@ import moment from "moment";
 class OneOnOneRepo {
   async listarCuringas() {
     return axios
-      .get(`https://one-on-ones-dti.herokuapp.com/api/data_tribe/Curingas`)
+      .get(`https://one-on-ones-dti.herokuapp.com/api/data_tribe?tribe=Curingas`)
       .then(response => {
         return _.filter(response.data.crafters, crafter => crafter.email !== "leonardo.goncalves@dtidigital.com.br");
       })
