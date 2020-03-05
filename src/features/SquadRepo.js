@@ -4,11 +4,13 @@ import moment from "moment";
 class SquadRepo {
   async listarSquads() {
     const options = {
-      headers: {
-        "Access-Control-Allow-Headers": "https://dtidigitalcrafters.github.io",
-        "Access-Control-Allow-Origin": "https://dtidigitalcrafters.github.io"
-      }
+      "Access-Control-Allow-Headers":
+        "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Method, Access-Control-Request-Headers",
+      "Access-Control-Allow-Origin": "*",
+      "Access-Control-Allow-Credentials": "false",
+      "Access-Control-Allow-Methods": "GET,HEAD,OPTIONS,POST,PUT"
     };
+
     return axios
       .get(
         `https://docs.google.com/spreadsheets/d/e/2PACX-1vSpC_x6FOQi7QOG4-gFFZzgIp_BCHZEKLHy8PoJpA9twqOAsRVMUerK9BEhglaI92K58qjW4DOFFkMC/pub?gid=766563780&single=true&output=tsv`,
