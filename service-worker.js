@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/gestao-a-vista-curingas/precache-manifest.1fbfc5032e9b50cec2f2cfc16bc27df4.js"
+  "/gestao-a-vista-curingas/precache-manifest.90996339709e69c3a4f226364737caa1.js"
 );
 
 self.addEventListener('message', (event) => {
