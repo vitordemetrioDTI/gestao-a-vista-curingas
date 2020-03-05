@@ -1,7 +1,7 @@
 import { corPlano } from "./membrosUtils";
 
 const tratarMembros = membrosTSV => {
-  const linha = membrosTSV.data.split("\r\n");
+  const linha = membrosTSV.body.split("\r\n");
   const cabecalhos = linha[0].toLowerCase().split("\t");
 
   const result = linha.map(item => {

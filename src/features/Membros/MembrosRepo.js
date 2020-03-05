@@ -1,22 +1,20 @@
-import axios from "axios";
+const util = require("util");
+const request = require("request");
+const requestPromise = util.promisify(request);
 
 class MembrosRepo {
   async listarMembros() {
     try {
       const options = {
-        headers: {
-          "Access-Control-Allow-Headers":
-            "Access-Control-Allow-Headers, Origin,Accept, X-Requested-With, Content-Type, Access-Control-Request-Headers",
-          "Access-Control-Allow-Origin": "*"
-        }
+        method: "GET",
+        url:
+          "https://docs.google.com/spreadsheets/d/e/2PACX-1vSpC_x6FOQi7QOG4-gFFZzgIp_BCHZEKLHy8PoJpA9twqOAsRVMUerK9BEhglaI92K58qjW4DOFFkMC/pub?gid=1877599560&single=true&output=tsv",
+        headers: {}
       };
-      const tsvMembros = await axios.get(
-        `https://docs.google.com/spreadsheets/d/e/2PACX-1vSpC_x6FOQi7QOG4-gFFZzgIp_BCHZEKLHy8PoJpA9twqOAsRVMUerK9BEhglaI92K58qjW4DOFFkMC/pub?gid=1877599560&single=true&output=tsv`,
-        options
-      );
-      return tsvMembros;
-    } catch (erro) {
-      console.log(`Erro no repositório de membros: ${erro}`);
+      const resultado = await requestPromise(options);
+      return resultado;
+    } catch (err) {
+      console.log("Erro no repositório de membros", err);
     }
   }
 }
