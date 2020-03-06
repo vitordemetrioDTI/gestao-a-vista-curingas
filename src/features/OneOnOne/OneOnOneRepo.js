@@ -1,6 +1,5 @@
 import axios from "axios";
 import * as _ from "lodash";
-import moment from "moment";
 
 class OneOnOneRepo {
   async listarCuringas() {
@@ -12,14 +11,6 @@ class OneOnOneRepo {
       .catch(error => {
         console.log(`Erro na OneOnOne: ${error}`);
       });
-  }
-
-  parseCuringa(array) {
-    return {
-      Crafter: array[0],
-      Data: moment(array[1], "DD/MM/YYYY"),
-      Lider: array[2]
-    };
   }
 }
 

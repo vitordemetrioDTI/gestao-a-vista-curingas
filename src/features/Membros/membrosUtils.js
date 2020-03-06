@@ -1,10 +1,10 @@
 import moment from "moment";
 
-const corStatus = (meeting, props) => {
-  if (!meeting) {
-    return props.classes.Escalado;
+const corStatus = crafter => {
+  if (!crafter.data) {
+    return "#1c68b1";
   }
-  const dias = moment().diff(moment(meeting.lastMeeting), "days");
+  const dias = moment().diff(moment(crafter.data), "days");
   if (dias < 21) {
     return "#57bb8a";
   } else if (dias < 30) {

@@ -12,7 +12,7 @@ export const membros = props => {
       {props.membros.map(membro => {
         if (props.crafters) {
           const crafter = props.crafters.find(crafter => crafter.email.includes(membro.login));
-          corStatusOneOnOne = corStatus(crafter.meeting, props);
+          corStatusOneOnOne = corStatus(crafter);
         }
         let avatar = (
           <Avatar

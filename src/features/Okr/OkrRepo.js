@@ -10,7 +10,7 @@ class OkrRepo {
     };
     return axios
       .get(
-        `https://docs.google.com/spreadsheets/d/e/2PACX-1vSpC_x6FOQi7QOG4-gFFZzgIp_BCHZEKLHy8PoJpA9twqOAsRVMUerK9BEhglaI92K58qjW4DOFFkMC/pub?gid=1278116042&single=true&output=tsv`,
+        `https://docs.google.com/spreadsheets/d/e/2PACX-1vSLZ7qBajVpujI1pM_36Pd-5cS-vS24OxVcoaFuiNlr6eJrAroei1iyXwZWM95kYo0iaAD1APSZ1KST/pub?gid=1278116042&single=true&output=tsv`,
         options
       )
       .then(response => {
