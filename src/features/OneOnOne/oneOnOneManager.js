@@ -1,8 +1,7 @@
-const parseCrafter = array => {
-  let obj = {};
-  const crafter = array.map(crafter => {
+const parseCrafter = CraftersAPI => {
+  const crafter = CraftersAPI.map(crafter => {
     if (crafter.association) {
-      obj = {
+      return {
         tribo: crafter.tribe,
         nome: crafter.name,
         email: crafter.email,
@@ -11,7 +10,7 @@ const parseCrafter = array => {
         data: new Date(crafter.association.lastMeeting)
       };
     } else {
-      obj = {
+      return {
         tribo: crafter.tribe,
         nome: crafter.name,
         email: crafter.email,
@@ -20,7 +19,6 @@ const parseCrafter = array => {
         data: null
       };
     }
-    return obj;
   });
   return crafter;
 };
