@@ -1,10 +1,6 @@
 import React from "react";
 import ReactApexCharts from "react-apexcharts";
-import {
-  retornaSegundoItem,
-  substituirScoreCE,
-  filtrarScoresCE
-} from "../checkExecucaoUtils";
+import { retornaSegundoItem, substituirScoreCE, filtrarScoresCE } from "../checkExecucaoUtils";
 
 export const checkExecucao = props => {
   const scores = filtrarScoresCE(props);
@@ -32,7 +28,7 @@ export const checkExecucao = props => {
           colors: ["#1c68b1"],
           opacity: 0.9
         },
-        markers: { size: 0 },
+        markers: { size: 1 },
         stroke: {
           show: false
         },

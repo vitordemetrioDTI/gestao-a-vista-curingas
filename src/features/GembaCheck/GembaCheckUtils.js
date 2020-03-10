@@ -1,10 +1,10 @@
-const retornaSegundoItem = scores => {
+const obterDados = scores => {
   return scores.map(entry => {
     return entry[1];
   });
 };
 
-const substituirScoreGemba = scores => {
+const organizarCategorias = scores => {
   return scores.map(entry => {
     return entry[0].replace("ScoreGemba", "");
   });
@@ -16,4 +16,4 @@ const filtrarScoreGemba = props => {
   });
 };
 
-export { retornaSegundoItem, substituirScoreGemba, filtrarScoreGemba };
+export { obterDados, organizarCategorias, filtrarScoreGemba };

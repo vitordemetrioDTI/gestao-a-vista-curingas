@@ -1,15 +1,11 @@
 import React from "react";
 import ReactApexCharts from "react-apexcharts";
-import {
-  retornaSegundoItem,
-  substituirScoreGemba,
-  filtrarScoreGemba
-} from "../gembaCheckUtils";
+import { obterDados, organizarCategorias, filtrarScoreGemba } from "../gembaCheckUtils";
 
 export const gembaCheck = props => {
   const scores = filtrarScoreGemba(props);
-  const categories = substituirScoreGemba(scores);
-  const data = retornaSegundoItem(scores);
+  const categories = organizarCategorias(scores);
+  const data = obterDados(scores);
   return (
     <ReactApexCharts
       options={{
