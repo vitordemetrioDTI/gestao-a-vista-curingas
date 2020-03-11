@@ -6,7 +6,6 @@ export const gembaCheck = props => {
   const scores = filtrarScoreGemba(props);
   const categories = organizarCategorias(scores);
   const data = obterDados(scores);
-
   return (
     <ReactApexCharts
       series={[
@@ -16,7 +15,7 @@ export const gembaCheck = props => {
       ]}
       options={{
         chart: {
-          height: 450,
+          height: 650,
           width: "100%",
           type: "radar",
           background: "rgba(41, 40, 61, 0)"
@@ -26,7 +25,7 @@ export const gembaCheck = props => {
         },
         plotOptions: {
           radar: {
-            size: 170,
+            size: 165,
             polygons: {
               strokeColor: "#e9e9e9",
               fill: {
@@ -57,7 +56,25 @@ export const gembaCheck = props => {
         },
         yaxis: {
           show: false
-        }
+        },
+        responsive: [
+          {
+            breakpoint: 1800,
+            options: {
+              plotOptions: {
+                radar: {
+                  size: 108,
+                  polygons: {
+                    strokeColor: "#e9e9e9",
+                    fill: {
+                      colors: ["#b0b0b020"]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        ]
       }}
       type="radar"
     />
