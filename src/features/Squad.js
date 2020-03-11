@@ -31,7 +31,7 @@ export const Squad = props => {
             <Grid item xs={12} align="center">
               <Typography className={classes.planoDeAcao}>Plano de Ação</Typography>
               <PlanoDeAcao membros={props.membros} />
-              <Typography style={{ marginBlockEnd: "250px" }}> </Typography>
+              <Typography style={{ marginBlockEnd: "300px" }}> </Typography>
             </Grid>
           </Grid>
           <Grid item xs={4}>
@@ -48,8 +48,7 @@ const styles = {
     fontSize: "2rem",
     fontWeight: 900,
     color: "#ffffff",
-    marginBlockEnd: "2%",
-    marginTop: "-100px"
+    marginBlockEnd: "2%"
   },
   titulo: {
     fontSize: "2rem",

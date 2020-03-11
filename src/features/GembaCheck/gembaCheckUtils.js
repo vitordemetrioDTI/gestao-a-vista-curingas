@@ -1,5 +1,6 @@
 const obterDados = scores => {
   return scores.map(entry => {
+    if (isNaN(entry[1])) return null;
     return entry[1];
   });
 };

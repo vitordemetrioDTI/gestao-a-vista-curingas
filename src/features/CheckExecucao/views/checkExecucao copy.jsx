@@ -8,26 +8,16 @@ export const checkExecucao = props => {
   const data = retornaSegundoItem(scores);
   return (
     <ReactApexCharts
-      series={[
-        {
-          data: data
-        }
-      ]}
       options={{
         chart: {
-          height: 450,
-          width: "100%",
           type: "radar",
           background: "rgba(41, 40, 61, 0)"
-        },
-        dataLabels: {
-          enabled: true
         },
         plotOptions: {
           radar: {
             size: 180,
             polygons: {
-              strokeColor: "#e9e9e9",
+              strokeColor: "#ffffff",
               fill: {
                 colors: ["#ffffff20"]
               }
@@ -37,19 +27,37 @@ export const checkExecucao = props => {
         colors: ["#1c68b1"],
         fill: {
           colors: ["#1c68b1"],
-          opacity: 0.5
+          opacity: 0.9
         },
-        markers: {
-          size: 0,
-          colors: ["#fff"],
-          strokeColor: "#1c68b1",
-          strokeWidth: 2
+        markers: { size: 1 },
+        stroke: {
+          show: false
         },
-
+        theme: {
+          mode: "dark",
+          palette: "palette8"
+        },
+        yaxis: {
+          show: false
+        },
         xaxis: {
-          categories: categories
+          categories: categories,
+          labels: {
+            show: true,
+            style: {
+              colors: ["#ffffff"],
+              fontSize: "0.7rem",
+              fontFamily: "Poppins"
+            }
+          }
         }
       }}
+      series={[
+        {
+          name: "",
+          data: data
+        }
+      ]}
       type="radar"
     />
   );
