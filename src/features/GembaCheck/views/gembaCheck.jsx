@@ -26,7 +26,7 @@ export const gembaCheck = props => {
         },
         plotOptions: {
           radar: {
-            size: 180,
+            size: 170,
             polygons: {
               strokeColor: "#e9e9e9",
               fill: {
