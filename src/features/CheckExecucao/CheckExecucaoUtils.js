@@ -1,19 +1,20 @@
-const retornaSegundoItem = scores => {
+const obterDados = scores => {
   return scores.map(entry => {
+    if (isNaN(entry[1])) return null;
     return entry[1];
   });
 };
 
-const substituirScoreCE = scores => {
+const organizarCategorias = scores => {
   return scores.map(entry => {
     return entry[0].replace("ScoreCE", "");
   });
 };
 
-const filtrarScoresCE = props => {
+const filtrarScoreGemba = props => {
   return Object.entries(props.squad).filter(entry => {
     return entry[0].includes("ScoreCE");
   });
 };
 
-export { retornaSegundoItem, substituirScoreCE, filtrarScoresCE };
+export { obterDados, organizarCategorias, filtrarScoreGemba };

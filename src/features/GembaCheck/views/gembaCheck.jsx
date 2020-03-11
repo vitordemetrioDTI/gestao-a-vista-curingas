@@ -30,24 +30,33 @@ export const gembaCheck = props => {
             polygons: {
               strokeColor: "#e9e9e9",
               fill: {
-                colors: ["#ffffff20"]
+                colors: ["#b0b0b020"]
               }
             }
           }
         },
-        colors: ["#1c68b1"],
+        colors: ["#004b94"],
         fill: {
-          colors: ["#1c68b1"],
-          opacity: 0.5
+          colors: ["#1f82e0"],
+          opacity: 0.7
         },
         markers: {
           size: 0,
-          colors: ["#fff"],
-          strokeColor: "#1c68b1",
-          strokeWidth: 2
+          colors: ["#fff"]
         },
         xaxis: {
-          categories: categories
+          categories: categories,
+          labels: {
+            show: true,
+            style: {
+              colors: ["#ffffff"],
+              fontSize: "0.7rem",
+              fontFamily: "Poppins"
+            }
+          }
+        },
+        yaxis: {
+          show: false
         }
       }}
       type="radar"
