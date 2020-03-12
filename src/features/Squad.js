@@ -1,8 +1,7 @@
 import React from "react";
 import { withStyles, Typography, Grid } from "@material-ui/core";
 import Cadencia from "./Cadencia";
-import GembaCheck from "./GembaCheck";
-import CheckExecucao from "./CheckExecucao";
+import { GembaCheck, CheckExecucao } from "./Checks";
 import PlanoDeAcao from "./PlanoDeAcao";
 import { Membros } from "./Membros";
 

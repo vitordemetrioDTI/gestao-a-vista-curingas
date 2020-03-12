@@ -5,16 +5,16 @@ const obterDados = scores => {
   });
 };
 
-const organizarCategorias = scores => {
+const organizarCategorias = (scores, tipo) => {
   return scores.map(entry => {
-    return entry[0].replace("ScoreGemba", "");
+    return entry[0].replace(tipo, "");
   });
 };
 
-const filtrarScoreGemba = props => {
+const filtrarScores = (props, tipo) => {
   return Object.entries(props.squad).filter(entry => {
-    return entry[0].includes("ScoreGemba");
+    return entry[0].includes(tipo);
   });
 };
 
-export { obterDados, organizarCategorias, filtrarScoreGemba };
+export { obterDados, organizarCategorias, filtrarScores };

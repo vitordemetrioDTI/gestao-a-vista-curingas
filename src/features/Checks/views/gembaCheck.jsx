@@ -1,10 +1,10 @@
 import React from "react";
 import ReactApexCharts from "react-apexcharts";
-import { obterDados, organizarCategorias, filtrarScoreGemba } from "../checkExecucaoUtils";
+import { obterDados, organizarCategorias, filtrarScores } from "../checksUtil";
 
-export const checkExecucao = props => {
-  const scores = filtrarScoreGemba(props);
-  const categories = organizarCategorias(scores);
+export const gembaCheck = props => {
+  const scores = filtrarScores(props, "ScoreGemba");
+  const categories = organizarCategorias(scores, "ScoreGemba");
   const data = obterDados(scores);
   return (
     <ReactApexCharts
@@ -81,4 +81,4 @@ export const checkExecucao = props => {
   );
 };
 
-export default checkExecucao;
+export default gembaCheck;
