@@ -1,6 +1,6 @@
 import React from "react";
 import { Grid, Typography } from "@material-ui/core";
-import obterCorBackground from "../cadenciaUtils";
+import { obterCorBackground, verificaData } from "../cadenciaUtils";
 
 let estiloTitulo = { fontSize: "1.6rem", fontWeight: 300, color: "#ffffff" };
 
@@ -30,18 +30,19 @@ export const cadencia = props => {
 };
 
 const obterDataComFarol = data => {
-  let backgroundColor = obterCorBackground(data);
+  let dataVerificada = verificaData(data);
+  let backgroundColor = obterCorBackground(data, dataVerificada);
   return (
     <Typography
       style={{
-        width: "64%",
+        width: "80%",
         fontSize: "3rem",
         fontWeight: 900,
         backgroundColor: backgroundColor,
         color: "#ffffff"
       }}
     >
-      {data.isValid() ? data.format("DD/MM") : "NOVO"}
+      {dataVerificada}
     </Typography>
   );
 };
