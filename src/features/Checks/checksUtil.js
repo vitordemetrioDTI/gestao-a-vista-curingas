@@ -1,8 +1,17 @@
-const obterDados = scores => {
-  return scores.map(entry => {
-    if (isNaN(entry[1])) return null;
-    return entry[1];
+const filtrarScores = (props, tipo) => {
+  return Object.entries(props.squad).filter(entry => {
+    return entry[0].includes(tipo);
   });
+};
+
+const verificaScores = scores => {
+  let scoresVerificados = [];
+  scores.forEach(score => {
+    if (!isNaN(score[1])) {
+      scoresVerificados.push(score);
+    }
+  });
+  return scoresVerificados;
 };
 
 const organizarCategorias = (scores, tipo) => {
@@ -11,10 +20,10 @@ const organizarCategorias = (scores, tipo) => {
   });
 };
 
-const filtrarScores = (props, tipo) => {
-  return Object.entries(props.squad).filter(entry => {
-    return entry[0].includes(tipo);
+const obterDados = scores => {
+  return scores.map(entry => {
+    return entry[1];
   });
 };
 
-export { obterDados, organizarCategorias, filtrarScores };
+export { filtrarScores, verificaScores, organizarCategorias, obterDados };

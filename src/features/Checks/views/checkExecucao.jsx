@@ -1,11 +1,12 @@
 import React from "react";
 import ReactApexCharts from "react-apexcharts";
-import { obterDados, organizarCategorias, filtrarScores } from "../checksUtil";
+import { filtrarScores, verificaScores, organizarCategorias, obterDados } from "../checksUtil";
 
 export const checkExecucao = props => {
   const scores = filtrarScores(props, "ScoreCE");
-  const categories = organizarCategorias(scores, "ScoreCE");
-  const data = obterDados(scores);
+  const scoresVerificados = verificaScores(scores);
+  const categories = organizarCategorias(scoresVerificados, "ScoreCE");
+  const data = obterDados(scoresVerificados);
   return (
     <ReactApexCharts
       series={[
