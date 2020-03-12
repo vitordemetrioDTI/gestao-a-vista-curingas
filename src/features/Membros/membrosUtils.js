@@ -25,4 +25,12 @@ const corPlano = () => {
   return cor;
 };
 
-export { corStatus, corPlano };
+const selecionafoto = membro => {
+  if (membro.foto) {
+    return membro.foto;
+  } else {
+    return `./images/fotos/${membro.login}.JPG`;
+  }
+};
+
+export { corStatus, corPlano, selecionafoto };

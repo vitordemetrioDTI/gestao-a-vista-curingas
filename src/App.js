@@ -23,6 +23,7 @@ class App extends React.Component {
     const tsvMembros = await MembrosRepo.listarMembros();
     const todosMembros = tratarMembros(tsvMembros);
     const membrosObjeto = membrosParaObjetos(squads, todosMembros);
+
     const okrs = await OkrRepo.listarOkrs();
     this.setState({ squads: squads, membros: membrosObjeto, okrs: okrs, crafters: crafters });
 

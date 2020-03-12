@@ -1,7 +1,7 @@
 import React from "react";
 import { Grid, Badge, Avatar, Typography, withStyles } from "@material-ui/core";
 import EventAvailableIcon from "@material-ui/icons/EventAvailableRounded";
-import { corStatus } from "../membrosUtils";
+import { corStatus, selecionafoto } from "../membrosUtils";
 
 export const membros = props => {
   const { classes } = props;
@@ -21,7 +21,7 @@ export const membros = props => {
               border: `8px solid ${corStatusOneOnOne}`,
               backgroundColor: corStatusOneOnOne
             }}
-            src={`./images/fotos/${membro.login}.JPG`}
+            src={selecionafoto(membro)}
           />
         );
         if (membro.plano) {
