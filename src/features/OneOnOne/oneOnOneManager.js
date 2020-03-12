@@ -23,6 +23,7 @@ const parseCrafter = CraftersAPI => {
     });
     return crafter;
   } else {
+    console.log(`Repositorio de OneOnOne's está fora do ar`);
     return null;
   }
 };
