@@ -8,7 +8,7 @@ class SquadRepo {
     const options = {
       method: "GET",
       url:
-        "https://docs.google.com/spreadsheets/d/e/2PACX-1vSP3HALgBaaH-50-v0hj92MDNKSV4Rl5bPhCD41fg-nPsZH7nu02TGe23CQBJ6DJY7esBSYpaYZlcDx/pub?gid=766563780&single=true&output=tsv",
+        "https://docs.google.com/spreadsheets/d/e/2PACX-1vSpC_x6FOQi7QOG4-gFFZzgIp_BCHZEKLHy8PoJpA9twqOAsRVMUerK9BEhglaI92K58qjW4DOFFkMC/pub?gid=766563780&single=true&output=tsv",
       headers: {}
     };
     try {
