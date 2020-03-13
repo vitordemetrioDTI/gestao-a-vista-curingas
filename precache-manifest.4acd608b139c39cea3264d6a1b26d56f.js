@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "da16f6b098e39cb13ddc3b137ab4fb60",
+    "revision": "6c1ce70125ff7dd028e6b77a2944d5cb",
     "url": "/gestao-a-vista-curingas/index.html"
   },
   {
-    "revision": "4f91b089d9798a8b5208",
+    "revision": "f24bbe698966a8486e8c",
     "url": "/gestao-a-vista-curingas/static/css/main.1c0a5e17.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/gestao-a-vista-curingas/static/js/2.b74d6b2d.chunk.js.LICENSE"
   },
   {
-    "revision": "4f91b089d9798a8b5208",
-    "url": "/gestao-a-vista-curingas/static/js/main.17961da5.chunk.js"
+    "revision": "f24bbe698966a8486e8c",
+    "url": "/gestao-a-vista-curingas/static/js/main.c8bef6ec.chunk.js"
   },
   {
     "revision": "ad9598cf00ddaf0ddb89",
