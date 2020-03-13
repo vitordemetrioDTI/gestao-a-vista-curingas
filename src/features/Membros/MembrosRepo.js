@@ -8,7 +8,7 @@ class MembrosRepo {
       const options = {
         method: "GET",
         url:
-          "https://docs.google.com/spreadsheets/d/e/2PACX-1vSpC_x6FOQi7QOG4-gFFZzgIp_BCHZEKLHy8PoJpA9twqOAsRVMUerK9BEhglaI92K58qjW4DOFFkMC/pub?gid=1877599560&single=true&output=tsv",
+          "https://docs.google.com/spreadsheets/d/e/2PACX-1vTGBkE3MJHkuVH8tulx_Qtl2MRu1Ozu6qvVSRc5OmpBjYSSp96XckCNd4_PjnsaPitIrTTH-A730O3F/pub?gid=1877599560&single=true&output=tsv",
         headers: {}
       };
       const resultado = await requestPromise(options);

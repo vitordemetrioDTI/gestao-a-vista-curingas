@@ -9,11 +9,13 @@ import SquadRepo from "./features/SquadRepo";
 import { OneOnOneRepo, parseCrafter } from "./features/OneOnOne";
 import { Okr, OkrRepo } from "./features/Okr";
 import { MembrosRepo, tratarMembros, membrosParaObjetos } from "./features/Membros";
+import Loading from "./features/Loading";
 
 class App extends React.Component {
   state = {
     index: 0,
-    play: true
+    play: true,
+    loading: true
   };
 
   async UNSAFE_componentWillMount() {
@@ -25,7 +27,7 @@ class App extends React.Component {
     const membrosObjeto = membrosParaObjetos(squads, todosMembros);
 
     const okrs = await OkrRepo.listarOkrs();
-    this.setState({ squads: squads, membros: membrosObjeto, okrs: okrs, crafters: crafters });
+    this.setState({ squads: squads, membros: membrosObjeto, okrs: okrs, crafters: crafters, loading: false });
 
     this.timer = setInterval(() => {
       if (this.state.play) {
@@ -45,7 +47,7 @@ class App extends React.Component {
   };
 
   render() {
-    const { index, squads, crafters, okrs, membros } = this.state;
+    const { index, squads, crafters, okrs, membros, loading } = this.state;
     const { classes } = this.props;
 
     return (
@@ -64,6 +66,8 @@ class App extends React.Component {
           map(squads, (squad, i) => {
             return (
               <Paper className={classes.pageView} hidden={index !== i} key={squad.Squad}>
+                <Loading loading={loading} message="Carregando usuários..." />
+
                 <Squad squad={squad} crafters={crafters} membros={membros[squad.Squad]} />
               </Paper>
             );
