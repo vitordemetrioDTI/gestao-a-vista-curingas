@@ -25,9 +25,11 @@ class App extends React.Component {
     const tsvMembros = await MembrosRepo.listarMembros();
     const todosMembros = tratarMembros(tsvMembros);
     const membrosObjeto = membrosParaObjetos(squads, todosMembros);
-
     const okrs = await OkrRepo.listarOkrs();
-    this.setState({ squads: squads, membros: membrosObjeto, okrs: okrs, crafters: crafters, loading: false });
+
+    this.setState({ loading: false });
+
+    this.setState({ squads: squads, membros: membrosObjeto, okrs: okrs, crafters: crafters });
 
     this.timer = setInterval(() => {
       if (this.state.play) {
@@ -61,13 +63,12 @@ class App extends React.Component {
           </Tabs>
           <Typography variant="overline" style={{ position: "absolute", right: "16px", top: "24px" }}></Typography>
         </AppBar>
+        <Loading loading={loading} message="Carregando usuários..." />
         {// Só será executado quando o state membros estiver inicializado... Garantindo que a será enviado a props na ordem correta
         this.state.membros &&
           map(squads, (squad, i) => {
             return (
               <Paper className={classes.pageView} hidden={index !== i} key={squad.Squad}>
-                <Loading loading={loading} message="Carregando usuários..." />
-
                 <Squad squad={squad} crafters={crafters} membros={membros[squad.Squad]} />
               </Paper>
             );
