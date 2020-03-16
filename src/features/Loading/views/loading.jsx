@@ -8,7 +8,7 @@ const loading = props => {
   return props.loading ? (
     <div className={classes.overlayContent}>
       <div className={classes.wrapper}>
-        <Spinner className={classes.spinner} name="pacman" fadeIn="none" color="yellow" size="2000px" />
+        <Spinner className={classes.spinner} name="pacman" fadeIn="none" color="yellow" />
         <span className={classes.message}>{props.message}</span>
       </div>
     </div>
