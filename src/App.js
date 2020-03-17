@@ -9,11 +9,13 @@ import SquadRepo from "./features/SquadRepo";
 import { OneOnOneRepo, parseCrafter } from "./features/OneOnOne";
 import { Okr, OkrRepo } from "./features/Okr";
 import { MembrosRepo, tratarMembros, membrosParaObjetos } from "./features/Membros";
+import Loading from "./features/Loading";
 
 class App extends React.Component {
   state = {
     index: 0,
-    play: true
+    play: true,
+    loading: true
   };
 
   async UNSAFE_componentWillMount() {
@@ -23,8 +25,10 @@ class App extends React.Component {
     const tsvMembros = await MembrosRepo.listarMembros();
     const todosMembros = tratarMembros(tsvMembros);
     const membrosObjeto = membrosParaObjetos(squads, todosMembros);
-
     const okrs = await OkrRepo.listarOkrs();
+
+    this.setState({ loading: false });
+
     this.setState({ squads: squads, membros: membrosObjeto, okrs: okrs, crafters: crafters });
 
     this.timer = setInterval(() => {
@@ -45,7 +49,7 @@ class App extends React.Component {
   };
 
   render() {
-    const { index, squads, crafters, okrs, membros } = this.state;
+    const { index, squads, crafters, okrs, membros, loading } = this.state;
     const { classes } = this.props;
 
     return (
@@ -59,6 +63,7 @@ class App extends React.Component {
           </Tabs>
           <Typography variant="overline" style={{ position: "absolute", right: "16px", top: "24px" }}></Typography>
         </AppBar>
+        <Loading loading={loading} message="Combatendo o Covid-19..." />
         {// Só será executado quando o state membros estiver inicializado... Garantindo que a será enviado a props na ordem correta
         this.state.membros &&
           map(squads, (squad, i) => {
