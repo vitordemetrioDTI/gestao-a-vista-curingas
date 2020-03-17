@@ -63,7 +63,7 @@ class App extends React.Component {
           </Tabs>
           <Typography variant="overline" style={{ position: "absolute", right: "16px", top: "24px" }}></Typography>
         </AppBar>
-        <Loading loading={loading} message="Carregando usuários..." />
+        <Loading loading={loading} message="Combatendo o Covid-19..." />
         {// Só será executado quando o state membros estiver inicializado... Garantindo que a será enviado a props na ordem correta
         this.state.membros &&
           map(squads, (squad, i) => {
