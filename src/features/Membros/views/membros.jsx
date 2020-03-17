@@ -5,11 +5,11 @@ import { corStatus, selecionafoto } from "../membrosUtils";
 
 export const membros = props => {
   const { classes } = props;
-  let corStatusOneOnOne = "#1c68b1";
 
   return (
     <Grid container spacing={2} align="center">
       {props.membros.map(membro => {
+        let corStatusOneOnOne = "#1c68b1";
         if (props.crafters) {
           const crafter = props.crafters.find(crafter => crafter.email.includes(membro.login));
           if (crafter !== undefined) corStatusOneOnOne = corStatus(crafter);
